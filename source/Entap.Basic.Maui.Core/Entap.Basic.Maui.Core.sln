@@ -5,6 +5,10 @@ VisualStudioVersion = 25.0.1703.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entap.Basic.Maui.Core", "Entap.Basic.Maui.Core\Entap.Basic.Maui.Core.csproj", "{4648175D-6830-43AF-8C60-AE615F725D12}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{73B360AA-571C-46C8-8F44-0BEC4CC4588F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample\Sample.csproj", "{AC6A61B7-EED7-4BD7-8942-50FB96583F65}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +19,18 @@ Global
 		{4648175D-6830-43AF-8C60-AE615F725D12}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4648175D-6830-43AF-8C60-AE615F725D12}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4648175D-6830-43AF-8C60-AE615F725D12}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AC6A61B7-EED7-4BD7-8942-50FB96583F65}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AC6A61B7-EED7-4BD7-8942-50FB96583F65}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AC6A61B7-EED7-4BD7-8942-50FB96583F65}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AC6A61B7-EED7-4BD7-8942-50FB96583F65}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {0BC9E9B8-37DD-4FA6-A5E8-711E1CDBAB0A}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{AC6A61B7-EED7-4BD7-8942-50FB96583F65} = {73B360AA-571C-46C8-8F44-0BEC4CC4588F}
 	EndGlobalSection
 EndGlobal
