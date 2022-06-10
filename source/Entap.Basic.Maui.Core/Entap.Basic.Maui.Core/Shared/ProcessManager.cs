@@ -42,7 +42,7 @@ namespace Entap.Basic.Maui.Core
             catch (Exception ex)
             {
                 Debug.WriteLine($"[Warning]Exception occured.{Environment.NewLine}  ProcessName : {RunningProcessName}{Environment.NewLine} Exception : {ex.Message}");
-                throw ex;
+                throw;
             }
             finally
             {
@@ -88,7 +88,7 @@ namespace Entap.Basic.Maui.Core
             catch (Exception ex)
             {
                 Debug.WriteLine($"[Warning]Exception occured.{Environment.NewLine}  ProcessName : {RunningProcessName}{Environment.NewLine} Exception : {ex.Message}");
-                throw ex;
+                throw;
             }
             finally
             {
@@ -142,7 +142,6 @@ namespace Entap.Basic.Maui.Core
         /// <summary>
         /// プロセス名取得
         /// </summary>
-        /// <param name="action">同期処理</param>
         /// <param name="memberName">メンバー名</param>
         /// <param name="sourceFilePath">実行元ファイルパス</param>
         /// <param name="sourceLineNumber">行数</param>
