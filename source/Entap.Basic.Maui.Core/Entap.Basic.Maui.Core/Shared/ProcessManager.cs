@@ -23,7 +23,7 @@ namespace Entap.Basic.Maui.Core
         /// <summary>
         /// 実行中プロセス名
         /// </summary>
-        public string RunningProcessName { get; private set; }
+        public string? RunningProcessName { get; private set; }
 
         /// <summary>
         /// プロセスを実行する
