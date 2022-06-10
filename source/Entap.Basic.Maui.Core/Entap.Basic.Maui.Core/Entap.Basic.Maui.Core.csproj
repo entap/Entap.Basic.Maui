@@ -24,6 +24,7 @@
 	  <None Remove="Platforms\Tizen\" />
 	  <None Remove="Platforms\Windows\" />
 	  <None Remove="Shared\" />
+	  <None Remove="Shared\Extensions\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -32,5 +33,6 @@
 	  <Folder Include="Platforms\Tizen\" />
 	  <Folder Include="Platforms\Windows\" />
 	  <Folder Include="Shared\" />
+	  <Folder Include="Shared\Extensions\" />
 	</ItemGroup>
 </Project>
