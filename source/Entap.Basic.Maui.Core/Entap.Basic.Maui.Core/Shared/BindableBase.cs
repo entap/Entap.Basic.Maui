@@ -6,7 +6,7 @@ namespace Entap.Basic.Maui.Core
 {
 	public class BindableBase : INotifyPropertyChanged
 	{
-        public event PropertyChangedEventHandler PropertyChanged = delegate { };
+        public event PropertyChangedEventHandler? PropertyChanged = delegate { };
 
         /// <summary>
         /// プロパティ値を変更し、クライアントに通知し、プロパティの変更有無を返す。
@@ -16,7 +16,7 @@ namespace Entap.Basic.Maui.Core
         /// <param name="storage">get アクセス操作子と set アクセス操作子両方を使用したプロパティへの参照。</param>
         /// <param name="value">プロパティに必要な値。</param>
         /// <param name="propertyName">リスナーに通知するために使用するプロパティの名前。省略可能。</param>
-        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = null)
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = "")
         {
             if (object.Equals(storage, value))
             {
