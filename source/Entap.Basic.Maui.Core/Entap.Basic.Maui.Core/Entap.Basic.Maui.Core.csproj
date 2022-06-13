@@ -26,6 +26,8 @@
 	  <None Remove="Platforms\Windows\" />
 	  <None Remove="Shared\" />
 	  <None Remove="Shared\Extensions\" />
+	  <None Remove="Platforms\Android\Extensions\" />
+	  <None Remove="Platforms\Android\Interfaces\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -35,5 +37,7 @@
 	  <Folder Include="Platforms\Windows\" />
 	  <Folder Include="Shared\" />
 	  <Folder Include="Shared\Extensions\" />
+	  <Folder Include="Platforms\Android\Extensions\" />
+	  <Folder Include="Platforms\Android\Interfaces\" />
 	</ItemGroup>
 </Project>
