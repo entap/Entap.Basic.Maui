@@ -31,6 +31,8 @@
 	  <None Remove="Platforms\Android\Interfaces\" />
 	  <None Remove="Platforms\Android\Modules\" />
 	  <None Remove="Shared\PageManager\" />
+	  <None Remove="Shared\PageManager\PageNavigation\" />
+	  <None Remove="Shared\Behaviors\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -44,6 +46,8 @@
 	  <Folder Include="Platforms\Android\Interfaces\" />
 	  <Folder Include="Platforms\Android\Modules\" />
 	  <Folder Include="Shared\PageManager\" />
+	  <Folder Include="Shared\PageManager\PageNavigation\" />
+	  <Folder Include="Shared\Behaviors\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
