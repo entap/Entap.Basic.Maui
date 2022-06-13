@@ -1,0 +1,2 @@
+﻿# Entap.Basic.Maui.Core
+

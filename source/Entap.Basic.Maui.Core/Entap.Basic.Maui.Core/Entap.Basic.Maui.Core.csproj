@@ -16,6 +16,7 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
 	<ItemGroup>
@@ -42,4 +43,7 @@
 	  <Folder Include="Platforms\Android\Interfaces\" />
 	  <Folder Include="Platforms\Android\Modules\" />
 	</ItemGroup>
+    <ItemGroup>
+        <None Include="README.md" Pack="true" PackagePath="\"/>
+    </ItemGroup>
 </Project>
