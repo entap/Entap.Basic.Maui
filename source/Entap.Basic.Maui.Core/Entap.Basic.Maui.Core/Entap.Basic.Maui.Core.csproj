@@ -30,6 +30,7 @@
 	  <None Remove="Platforms\Android\Extensions\" />
 	  <None Remove="Platforms\Android\Interfaces\" />
 	  <None Remove="Platforms\Android\Modules\" />
+	  <None Remove="Shared\PageManager\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -42,8 +43,9 @@
 	  <Folder Include="Platforms\Android\Extensions\" />
 	  <Folder Include="Platforms\Android\Interfaces\" />
 	  <Folder Include="Platforms\Android\Modules\" />
+	  <Folder Include="Shared\PageManager\" />
 	</ItemGroup>
     <ItemGroup>
-        <None Include="../README.md" Pack="true" PackagePath="\"/>
+        <None Include="../README.md" Pack="true" PackagePath="\" />
     </ItemGroup>
 </Project>
