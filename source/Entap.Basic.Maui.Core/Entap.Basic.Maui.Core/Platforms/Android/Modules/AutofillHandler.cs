@@ -5,6 +5,9 @@ using Android.Views;
 
 namespace Entap.Basic.Maui.Core.Android
 {
+    /// <summary>
+    /// 自動入力のハンドリングを行う
+    /// </summary>
 	public class AutofillHandler
 	{
         /// <summary>
