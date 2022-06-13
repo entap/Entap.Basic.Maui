@@ -5,7 +5,7 @@ using Android.Content;
 using Android.Content.PM;
 using Android.OS;
 
-namespace Entap.Basic.Maui.Core.Platform.Android
+namespace Entap.Basic.Maui.Core.Android
 {
     [Activity(ConfigurationChanges = ConfigChanges.Orientation | ConfigChanges.ScreenSize)]
     public class StarterActivity : Activity
