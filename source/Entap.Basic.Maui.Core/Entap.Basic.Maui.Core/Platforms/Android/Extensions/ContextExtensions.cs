@@ -9,8 +9,8 @@ namespace Entap.Basic.Maui.Core.Platform.Android
 	/// <summary>
     /// Context拡張機能
     /// </summary>
-	public static class v
-	{
+	public static class ContextExtensions
+    {
         /// <summary>
         /// ForegroundServiceを起動する
         /// https://docs.microsoft.com/ja-jp/xamarin/android/app-fundamentals/services/foreground-services
