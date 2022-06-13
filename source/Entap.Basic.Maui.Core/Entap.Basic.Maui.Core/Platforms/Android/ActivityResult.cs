@@ -2,7 +2,7 @@
 using Android.App;
 using Android.Content;
 
-namespace Entap.Basic.Maui.Core.Platform.Android
+namespace Entap.Basic.Maui.Core.Android
 {
     public class ActivityResult
     {

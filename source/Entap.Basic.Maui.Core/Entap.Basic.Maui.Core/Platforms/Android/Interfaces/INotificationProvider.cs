@@ -1,7 +1,7 @@
 ﻿using System;
 using Android.App;
 
-namespace Entap.Basic.Maui.Core.Platform.Android
+namespace Entap.Basic.Maui.Core.Android
 {
     /// <summary>
     /// 通知プロバイダー

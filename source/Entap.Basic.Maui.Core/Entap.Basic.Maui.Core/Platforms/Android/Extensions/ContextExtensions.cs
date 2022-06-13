@@ -4,7 +4,7 @@ using Android.App;
 using Android.Content;
 using Android.OS;
 
-namespace Entap.Basic.Maui.Core.Platform.Android
+namespace Entap.Basic.Maui.Core.Android
 {
 	/// <summary>
     /// Context拡張機能

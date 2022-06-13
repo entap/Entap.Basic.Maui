@@ -28,6 +28,7 @@
 	  <None Remove="Shared\Extensions\" />
 	  <None Remove="Platforms\Android\Extensions\" />
 	  <None Remove="Platforms\Android\Interfaces\" />
+	  <None Remove="Platforms\Android\Modules\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -39,5 +40,6 @@
 	  <Folder Include="Shared\Extensions\" />
 	  <Folder Include="Platforms\Android\Extensions\" />
 	  <Folder Include="Platforms\Android\Interfaces\" />
+	  <Folder Include="Platforms\Android\Modules\" />
 	</ItemGroup>
 </Project>
