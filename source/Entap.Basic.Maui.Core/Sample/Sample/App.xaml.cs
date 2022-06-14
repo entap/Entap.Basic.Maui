@@ -1,4 +1,6 @@
-﻿namespace Sample;
+﻿using Entap.Basic.Maui.Core;
+
+namespace Sample;
 
 public partial class App : Application
 {
@@ -6,7 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		MainPage = new AppShell();
+		PageManager.Navigation.SetNavigationMainPage<MainPage>();
 	}
 }
 
