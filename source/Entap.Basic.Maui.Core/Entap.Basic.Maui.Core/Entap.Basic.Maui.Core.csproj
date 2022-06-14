@@ -33,6 +33,7 @@
 	  <None Remove="Shared\PageManager\" />
 	  <None Remove="Shared\PageManager\PageNavigation\" />
 	  <None Remove="Shared\Behaviors\" />
+	  <None Remove="Shared\PageManager\Behaviors\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -48,6 +49,7 @@
 	  <Folder Include="Shared\PageManager\" />
 	  <Folder Include="Shared\PageManager\PageNavigation\" />
 	  <Folder Include="Shared\Behaviors\" />
+	  <Folder Include="Shared\PageManager\Behaviors\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
