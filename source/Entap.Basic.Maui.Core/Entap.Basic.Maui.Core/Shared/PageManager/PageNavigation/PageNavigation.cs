@@ -128,7 +128,7 @@
         /// </summary>
         /// <value>The current navigation.</value>
         INavigation currentNavigation =>
-            modalNavigationStack?.Last() ??
+            modalNavigationStack?.LastOrDefault() ??
             MainApplication.Current.MainPage?.Navigation ??
             throw new InvalidOperationException();
 
