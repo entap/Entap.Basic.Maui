@@ -10,7 +10,7 @@
         void Init()
         {
             // Androidデバイスの戻るボタンを検出するため、App.Current.ModalPoppedを購読
-            Application.Current.ModalPopped += OnModalPopped;
+            MainApplication.Current.ModalPopped += OnModalPopped;
         }
 
         void OnModalPopped(object? sender, ModalPoppedEventArgs e)
@@ -77,10 +77,10 @@
             if (lastModalPage != null)
                 return GetCurrentPage(lastModalPage);
 
-            if (Application.Current.MainPage is null)
+            if (MainApplication.Current.MainPage is null)
                 return null;
 
-            return GetCurrentPage(Application.Current.MainPage);
+            return GetCurrentPage(MainApplication.Current.MainPage);
         }
 
         Page GetCurrentPage(Page page)
@@ -129,7 +129,7 @@
         /// <value>The current navigation.</value>
         INavigation currentNavigation =>
             modalNavigationStack?.Last() ??
-            Application.Current.MainPage?.Navigation ??
+            MainApplication.Current.MainPage?.Navigation ??
             throw new InvalidOperationException();
 
         void ClearNavigationModalStack()
@@ -216,7 +216,7 @@
 
         void RemoveMainPageNavigationStack()
         {
-            var mainPage = (Application.Current.MainPage);
+            var mainPage = (MainApplication.Current.MainPage);
             if (mainPage is null) return;
             RemoveNavigationStack(mainPage.Navigation);
             OnPagePopped(mainPage);
@@ -240,7 +240,7 @@
         {
             var completionSource = new TaskCompletionSource<Task>();
 
-            Application.Current.Dispatcher.Dispatch(async () =>
+            MainApplication.Current.Dispatcher.Dispatch(async () =>
             {
                 var oldPage = GetCurrentPage();
                 await currentNavigation.PushAsync(page, animated);
@@ -274,7 +274,7 @@
         public Task PopAsync(bool animated = true)
         {
             var completionSource = new TaskCompletionSource<Task>();
-            Application.Current.Dispatcher.Dispatch(async () =>
+            MainApplication.Current.Dispatcher.Dispatch(async () =>
             {
                 await currentNavigation.PopAsync(animated);
 
@@ -298,7 +298,7 @@
         public Task PushModalAsync(Page page, PageViewModelBase? viewModel = null, bool animated = true)
         {
             var completionSource = new TaskCompletionSource<Task>();
-            Application.Current.Dispatcher.Dispatch(async () =>
+            MainApplication.Current.Dispatcher.Dispatch(async () =>
             {
                 var oldPage = GetCurrentPage();
                 await currentNavigation.PushModalAsync(page, animated);
@@ -358,7 +358,7 @@
         public Task PopModalAsync(bool animated = true)
         {
             var completionSource = new TaskCompletionSource<Task>();
-            Application.Current.Dispatcher.Dispatch(async () =>
+            MainApplication.Current.Dispatcher.Dispatch(async () =>
             {
                 try
                 {
@@ -397,7 +397,7 @@
         public Task PopToRootAsync(bool animated = true)
         {
             var completionSource = new TaskCompletionSource<Task>();
-            Application.Current.Dispatcher.Dispatch(async () =>
+            MainApplication.Current.Dispatcher.Dispatch(async () =>
             {
                 OnPopToRoot(currentNavigation);
                 await currentNavigation.PopToRootAsync(animated);
