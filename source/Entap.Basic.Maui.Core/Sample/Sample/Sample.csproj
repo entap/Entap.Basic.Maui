@@ -51,9 +51,11 @@
 	<ItemGroup>
 	  <None Remove="UI\" />
 	  <None Remove="UI\Pages\" />
+	  <None Remove="UI\Pages\PageManager\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="UI\" />
 	  <Folder Include="UI\Pages\" />
+	  <Folder Include="UI\Pages\PageManager\" />
 	</ItemGroup>
 </Project>

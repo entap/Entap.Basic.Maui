@@ -11,7 +11,7 @@ namespace Sample
 
 		public ProcessCommand PageManagerCommand => new(async () =>
 		{
-			await Task.CompletedTask;
+			await PageManager.Navigation.PushAsync<PageManagerPage>(new PageManagerPageViewModel());
 		});
 	}
 }

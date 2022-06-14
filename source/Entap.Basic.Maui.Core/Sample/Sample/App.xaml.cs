@@ -8,7 +8,7 @@ public partial class App : Application
 	{
 		InitializeComponent();
 
-		PageManager.Navigation.SetNavigationMainPage<MainPage>();
+		PageManager.Navigation.SetNavigationMainPage<MainPage>(new MainPageViewModel());
 	}
 }
 
