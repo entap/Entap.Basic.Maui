@@ -18,5 +18,10 @@ namespace Sample
         {
             await PageManager.Navigation.SetNavigationMainPage<MyTabbedPage>(new MyTabbedPageViewModel());
         });
+
+        public ProcessCommand SetTabbedNavigationPageCommand => new(async () =>
+        {
+            await PageManager.Navigation.SetMainPage<TabbedNavigationPage>(new TabbedNavigationPageViewModel());
+        });
     }
 }

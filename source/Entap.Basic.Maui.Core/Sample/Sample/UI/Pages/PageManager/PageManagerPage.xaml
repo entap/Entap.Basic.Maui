@@ -60,8 +60,12 @@
                 Text="SetMainPage"
             />
             <Button
-                Text="TabbedPage"
+                Text="非推奨：SetNavigationMainPage(TabbedPage)"
                 Command="{Binding SetTabbedPageCommand}"
+            />
+            <Button
+                Text="SetMainPage(NavigationPage in TabbedPage)"
+                Command="{Binding SetTabbedNavigationPageCommand}"
             />
         </StackLayout>
     </ScrollView>
