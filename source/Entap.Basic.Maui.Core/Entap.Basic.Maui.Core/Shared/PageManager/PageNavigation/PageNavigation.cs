@@ -127,10 +127,23 @@
         /// 現在のNavigationを取得する。
         /// </summary>
         /// <value>The current navigation.</value>
-        INavigation currentNavigation =>
-            modalNavigationStack?.LastOrDefault() ??
-            MainApplication.Current.MainPage?.Navigation ??
-            throw new InvalidOperationException();
+        INavigation currentNavigation
+        {
+            get
+            {
+                if (modalNavigationStack?.LastOrDefault() is not null)
+                {
+                    return modalNavigationStack.Last();
+                }
+                if (MainApplication.Current.MainPage is TabbedPage tabbedPage &&
+                    tabbedPage.CurrentPage is NavigationPage)
+                {
+                    return tabbedPage.CurrentPage.Navigation;
+                }
+                return MainApplication.Current.MainPage?.Navigation ??
+                    throw new InvalidOperationException();
+            }
+        }                
 
         void ClearNavigationModalStack()
         {
@@ -219,6 +232,18 @@
             var mainPage = (MainApplication.Current.MainPage);
             if (mainPage is null) return;
             RemoveNavigationStack(mainPage.Navigation);
+
+            if (mainPage is TabbedPage tabbedPage)
+            {
+                foreach (var child in tabbedPage.Children)
+                {
+                    if (child is not NavigationPage navigationPage)
+                        continue;
+
+                    RemoveNavigationStack(navigationPage.Navigation);
+                }
+            }
+
             OnPagePopped(mainPage);
         }
         #endregion

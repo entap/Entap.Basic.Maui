@@ -31,9 +31,31 @@ namespace Entap.Basic.Maui.Core
             if (_oldPage is not null)
                 ((PageViewModelBase)_oldPage.BindingContext)?.OnExit();
 
-            (_tabbedPage?.CurrentPage?.BindingContext as PageViewModelBase)?.OnEntry();
+            if (_tabbedPage?.CurrentPage is NavigationPage navigationPage)
+            {
+                var currentPage = navigationPage.CurrentPage;
+                var currentBindingContext = currentPage.BindingContext;
+                if (currentBindingContext is null)
+                {
+                    EventHandler handler = null;
+                    handler += (sender, e) =>
+                    {
+                        currentPage.BindingContextChanged -= handler;
+                        GetCuttentPageViewModel(currentPage)?.OnEntry();
+                    };
+                    currentPage.BindingContextChanged += handler;
+                }
+                else
+                    GetCuttentPageViewModel(currentPage)?.OnEntry();
+            }
+            else
+                (_tabbedPage?.CurrentPage?.BindingContext as PageViewModelBase)?.OnEntry();
 
             _oldPage = _tabbedPage?.CurrentPage;
+
+            PageViewModelBase? GetCuttentPageViewModel(Page currentPage) =>
+                currentPage.BindingContext as PageViewModelBase;
+
         }
         protected override void OnBindingContextChanged()
         {
