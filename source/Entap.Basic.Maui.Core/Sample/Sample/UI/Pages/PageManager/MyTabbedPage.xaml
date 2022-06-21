@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TabbedPage
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Sample"
+    xmlns:basic="http://entap.co.jp/schemas/basic"
+    x:Class="Sample.MyTabbedPage"
+    x:DataType="local:MyTabbedPageViewModel">
+    <TabbedPage.Behaviors>
+        <basic:TabbedPageNavigationBehavior/>
+    </TabbedPage.Behaviors>
+
+    <local:PageManagerPage
+        Title="PageManager"
+        BindingContext="{Binding PageManagerPageViewModel}"
+    />
+
+    <local:MainPage
+        Title="MainPage"
+        BindingContext="{Binding MainPageViewModel}"
+    />
+</TabbedPage>

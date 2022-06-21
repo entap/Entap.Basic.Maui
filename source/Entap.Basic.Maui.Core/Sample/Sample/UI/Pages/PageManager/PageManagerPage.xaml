@@ -8,7 +8,8 @@
 >
     <ScrollView>
         <StackLayout
-            Padding="8"
+            Padding="24"
+            Spacing="8"
         >
             <Label
                 Text="ページ制御"
@@ -54,6 +55,14 @@
                 />
             </StackLayout>
 
+            <Label
+                Margin="0, 32, 0, 0"
+                Text="SetMainPage"
+            />
+            <Button
+                Text="TabbedPage"
+                Command="{Binding SetTabbedPageCommand}"
+            />
         </StackLayout>
     </ScrollView>
 </ContentPage>

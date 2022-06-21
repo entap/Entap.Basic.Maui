@@ -13,5 +13,10 @@ namespace Sample
         public ProcessCommand PushModalCommand => PushModalCommand<PageManagerPage>(new PageManagerPageViewModel());
 
         public ProcessCommand PushNavigationModalCommand => PushNavigationModalCommand<PageManagerPage>(new PageManagerPageViewModel(), true, true);
+
+        public ProcessCommand SetTabbedPageCommand => new(async () =>
+        {
+            await PageManager.Navigation.SetNavigationMainPage<MyTabbedPage>(new MyTabbedPageViewModel());
+        });
     }
 }
