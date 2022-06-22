@@ -1,0 +1,39 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             x:Class="Sample.ProcessPage"
+             Title="ProcessPage"
+             x:DataType="local:ProcessPageViewModel">
+    <VerticalStackLayout
+        Padding="24"
+        Spacing="16"
+        HorizontalOptions="Start"
+    >
+        <Button
+            Text="ProcessCommand"
+            Command="{Binding ProcessCommand}"
+        />
+
+        <Button
+            Text="ProcessCommand&lt;T&gt;"
+            Command="{Binding ProcessTCommand}"
+            CommandParameter="Test"
+        />
+
+        <HorizontalStackLayout>
+            <Button
+                Text="ProcessCommand-CanExecute"
+                Command="{Binding ProcessCanExecuteCommand}"
+            />
+            <Switch
+                IsToggled="{Binding CanExecute}"
+            />
+        </HorizontalStackLayout>
+
+        <Button
+            Text="ExceptionProcessCommand"
+            Command="{Binding ExceptionProcessCommand}"
+        />
+    </VerticalStackLayout>
+</ContentPage>

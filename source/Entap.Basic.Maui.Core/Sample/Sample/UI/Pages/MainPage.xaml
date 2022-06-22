@@ -12,6 +12,11 @@
             VerticalOptions="Center">
 
             <Button
+                Text="Process"
+                Command="{Binding ProcessCommand}"
+            />
+
+            <Button
                 Text="PageManager"
                 Command="{Binding PageManagerCommand}"
             />
