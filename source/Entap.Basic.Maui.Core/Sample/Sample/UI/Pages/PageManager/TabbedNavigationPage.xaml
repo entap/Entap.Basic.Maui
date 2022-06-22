@@ -2,12 +2,21 @@
 <TabbedPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Sample"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
              x:Class="Sample.TabbedNavigationPage"
              Title="TabbedNavigationPage"
              x:DataType="local:TabbedNavigationPageViewModel">
+    <TabbedPage.Behaviors>
+        <basic:TabbedPageNavigationBehavior/>
+    </TabbedPage.Behaviors>
+
     <NavigationPage
         Title="PageManager"
     >
+        <NavigationPage.Behaviors>
+            <basic:NavigationBehavior/>
+        </NavigationPage.Behaviors>
+
         <x:Arguments>
             <local:PageManagerPage
                 
@@ -19,6 +28,10 @@
     <NavigationPage
         Title="MainPage"
     >
+        <NavigationPage.Behaviors>
+            <basic:NavigationBehavior/>
+        </NavigationPage.Behaviors>
+
         <x:Arguments>
             <local:MainPage
                 BindingContext="{Binding MainPageViewModel}"
