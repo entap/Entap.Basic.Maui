@@ -37,7 +37,7 @@ namespace Entap.Basic.Maui.Core
                 var currentBindingContext = currentPage.BindingContext;
                 if (currentBindingContext is null)
                 {
-                    EventHandler handler = null;
+                    EventHandler handler? = null;
                     handler += (sender, e) =>
                     {
                         currentPage.BindingContextChanged -= handler;
