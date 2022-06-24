@@ -34,6 +34,8 @@
 	  <None Remove="Shared\PageManager\PageNavigation\" />
 	  <None Remove="Shared\Behaviors\" />
 	  <None Remove="Shared\PageManager\Behaviors\" />
+	  <None Remove="Shared\DisplaySizeManager\" />
+	  <None Remove="Platforms\iOS\Modules\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -50,6 +52,8 @@
 	  <Folder Include="Shared\PageManager\PageNavigation\" />
 	  <Folder Include="Shared\Behaviors\" />
 	  <Folder Include="Shared\PageManager\Behaviors\" />
+	  <Folder Include="Shared\DisplaySizeManager\" />
+	  <Folder Include="Platforms\iOS\Modules\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
