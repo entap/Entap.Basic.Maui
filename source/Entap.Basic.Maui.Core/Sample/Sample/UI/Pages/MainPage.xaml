@@ -21,6 +21,11 @@
                 Command="{Binding PageManagerCommand}"
             />
 
+            <Button
+                Text="DisplaySize"
+                Command="{Binding DisplaySizeCommand}"
+            />
+
         </VerticalStackLayout>
     </ScrollView>
  

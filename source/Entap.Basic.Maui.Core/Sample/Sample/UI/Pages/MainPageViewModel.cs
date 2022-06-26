@@ -18,6 +18,11 @@ namespace Sample
 		{
 			await PageManager.Navigation.PushAsync<PageManagerPage>(new PageManagerPageViewModel());
 		});
-	}
+
+        public ProcessCommand DisplaySizeCommand => new(async () =>
+        {
+            await PageManager.Navigation.PushAsync<DisplaySizePage>(new DisplaySizePageViewModel());
+        });
+    }
 }
 

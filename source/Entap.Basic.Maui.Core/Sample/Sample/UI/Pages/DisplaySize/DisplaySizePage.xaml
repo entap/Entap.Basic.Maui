@@ -1,0 +1,49 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.DisplaySizePage"
+             Title="DisplaySizePage"
+             x:Name="this"
+             x:DataType="local:DisplaySizePageViewModel"
+             NavigationPage.HasNavigationBar="{Binding HasNavigationBar}">
+    <ContentPage.Behaviors>
+        <!--ViewModelで使用する場合-->
+        <basic:SizeChangedBehavior
+            Width="{Binding PageWidth}"
+            Height="{Binding PageHeight}"
+            SizeChangedCommand="{Binding PageSizeChangedCommand}"
+        />
+    </ContentPage.Behaviors>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="24"
+        >
+            <Button
+                HorizontalOptions="Center"
+                Text="NavigationBar On/Off"
+                Command="{Binding SwitchNavigationBarVisibleCommand}"
+            />
+            <!--View内で使用する場合-->
+            <Label>
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="&lt;Page&gt;" />
+                        <Span Text="{x:Static sys:Environment.NewLine}" />
+                        <Span Text="{Binding Source={x:Reference this}, Path=Width, StringFormat='Width : {0}'}" />
+                        <Span Text="{x:Static sys:Environment.NewLine}" />
+                        <Span Text="{Binding Source={x:Reference this}, Path=Height, StringFormat='Height : {0}'}" />
+                    </FormattedString>
+
+                </Label.FormattedText>
+            </Label>
+
+            <Label
+                VerticalOptions="FillAndExpand"
+                Text="{Binding DisplaySizeInfo}"
+            />
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

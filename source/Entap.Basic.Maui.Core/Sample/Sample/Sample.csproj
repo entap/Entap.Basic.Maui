@@ -53,11 +53,13 @@
 	  <None Remove="UI\Pages\" />
 	  <None Remove="UI\Pages\PageManager\" />
 	  <None Remove="UI\Pages\Process\" />
+	  <None Remove="UI\Pages\DisplaySize\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="UI\" />
 	  <Folder Include="UI\Pages\" />
 	  <Folder Include="UI\Pages\PageManager\" />
 	  <Folder Include="UI\Pages\Process\" />
+	  <Folder Include="UI\Pages\DisplaySize\" />
 	</ItemGroup>
 </Project>
