@@ -43,11 +43,6 @@ namespace Entap.Basic.Maui.Core
             0;
 #endif
 
-
-        /// <summary>
-        /// <para>注意</para>
-        /// <para>iOSの場合、各ページのコードビハインドやViewModelのコンストラクタ内では使用せず、iOSDisplaySizeChangedの方を使う</para>
-        /// </summary>
         public static double TopNavigationHeight =>
             _displaySizeServiceInstance.GetTopNavigationHeight();
     }
