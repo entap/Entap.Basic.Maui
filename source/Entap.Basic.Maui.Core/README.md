@@ -1,6 +1,9 @@
 # Entap.Basic.Maui.Core
-* [PageManager](#pagemanager)  
- 
+* Modules
+  * [PageManager](#pagemanager)  
+  * [DisplaySizeManager](#displaysizemanager)  
+* Behaviors
+  * [SizeChangedBehavior](#sizechangedbehavior)
 
 
 ## PageManager
@@ -33,3 +36,17 @@ ViewModelからのページ遷移をサポートする。
         <basic:TabbedPageNavigationBehavior/>
     </TabbedPage.Behaviors>
 ```
+## DisplaySizeManager
+画面サイズ、 NavigationBar、 ステータスバー等のサイズを取得する
+### 対象
+| Platform | サポート |
+| -------- | ------- |
+| Android | ✔️ |
+| iOS | ✔️ |
+| MacCatalyst | ✖️ |
+| Tizen | 未確認 |
+| WIndows | 未確認 |
+
+## SizeChangedBehavior
+* VisualElement.SizeChangeイベント発火に、Width/Heightを取得可能。
+* SizeChangedCommandを(ICommand<Size>)バインド可能。
