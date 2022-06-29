@@ -49,10 +49,10 @@ namespace Entap.Basic.Maui.Core
         #region SafeArea BindableProperty
         public static readonly BindableProperty SafeAreaProperty = BindableProperty.Create(
             nameof(SafeArea),
-            typeof(Thickness?),
+            typeof(Thickness),
             typeof(SafeAreaLayoutBehavior),
-            null,
-            defaultBindingMode: BindingMode.TwoWay,
+            default(Thickness),
+            defaultBindingMode: BindingMode.Default,
             propertyChanged: (bindable, oldValue, newValue) =>
             {
                 if (!(bindable is SafeAreaLayoutBehavior behavior)) return;
