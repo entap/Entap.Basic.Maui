@@ -4,6 +4,7 @@
   * [DisplaySizeManager](#displaysizemanager)  
 * Behaviors
   * [SizeChangedBehavior](#sizechangedbehavior)
+  * [SafeArea](#safearea関連)
 
 
 ## PageManager
@@ -50,3 +51,54 @@ ViewModelからのページ遷移をサポートする。
 ## SizeChangedBehavior
 * VisualElement.SizeChangeイベント発火に、Width/Heightを取得可能。
 * SizeChangedCommandを(ICommand<Size>)バインド可能。
+
+## SafeArea関連  
+Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific  
+Page.UseSafeAreaを使用すると、画面下部に空白が発生する。  
+これを回避するために、SafeAreaを取得しPadding/MarginでSafeAreaを回避する。  
+### サンプル画像
+| UseSafeArea=False | UseSafeArea=True | Behavior使用時 |
+| -------- | ------- | ------- |
+| <img src="images/useSafeArea_false.png" width="150" /> |  <img src="images/useSafeArea_true.png" width="150" /> | <img src="images/use_SafeAreaBehavior.png" width="150" /> |
+
+* GetPageSafeAreaBehavior：Appearingイベントを購読し、SafeAreaを取得する　<br/>
+ https://docs.microsoft.com/ja-jp/xamarin/xamarin-forms/platform/ios/page-safe-area-layout
+* SafeAreaLayoutBehavior：任意のLayoutに対し、Paddingを使用しSafeAreaを指定する　　
+* SafeAreaViewBehavior：任意のViewに対し、Marginを使用しSafeAreaを指定する　　
+
+### 使用例
+* GetPageSafeAreaBehaviorでSafeAreaを取得し、SafeAreaLayoutBehaviorで反映
+```xml
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.SafeAreaPage"
+             x:DataType="local:SafeAreaPageViewModel"
+>
+    <ContentPage.Behaviors>
+        <basic:GetPageSafeAreaBehavior
+            x:Name="getPageSafeAreaBehavior"
+        />
+    </ContentPage.Behaviors>
+
+    <VerticalStackLayout
+        VerticalOptions="EndAndExpand"
+    >
+        <!-- Contents -->
+
+        <!-- Footer -->
+        <Grid>
+            <Grid.Behaviors>
+                <basic:SafeAreaLayoutBehavior
+                    PositionFlags="Bottom"
+                    SafeArea="{Binding Source={x:Reference getPageSafeAreaBehavior}, Path=SafeArea}"
+                />
+            </Grid.Behaviors>
+
+            <!-- FooterContents -->
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
+```
