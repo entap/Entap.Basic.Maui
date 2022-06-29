@@ -9,17 +9,8 @@ namespace Sample
     {
 		public SafeAreaPageViewModel()
 		{
+
 		}
-
-		public Command<ContentPage> SafeAreaCommand => new((page) =>
-		{
-			var isUsing = page.On<iOS>().UsingSafeArea();
-			Device.BeginInvokeOnMainThread(() =>
-			{
-				page.On<iOS>().SetUseSafeArea(!isUsing);
-			});
-        });
-
     }
 }
 

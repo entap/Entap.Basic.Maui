@@ -26,7 +26,7 @@
             BackgroundColor="{x:StaticResource Primary}">
             <Grid.Behaviors>
                 <basic:SafeAreaLayoutBehavior
-                    PositionFlags="Top,Bottom"
+                    PositionFlags="Bottom"
                     SafeArea="{Binding Source={x:Reference getPageSafeAreaBehavior}, Path=SafeArea}"
                 />
 
