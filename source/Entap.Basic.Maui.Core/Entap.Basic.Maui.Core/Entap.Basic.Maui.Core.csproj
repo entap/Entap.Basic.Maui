@@ -36,6 +36,7 @@
 	  <None Remove="Shared\PageManager\Behaviors\" />
 	  <None Remove="Shared\DisplaySizeManager\" />
 	  <None Remove="Platforms\iOS\Modules\" />
+	  <None Remove="Shared\Behaviors\SafeAreaBehavior\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -54,6 +55,7 @@
 	  <Folder Include="Shared\PageManager\Behaviors\" />
 	  <Folder Include="Shared\DisplaySizeManager\" />
 	  <Folder Include="Platforms\iOS\Modules\" />
+	  <Folder Include="Shared\Behaviors\SafeAreaBehavior\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
