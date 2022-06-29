@@ -26,6 +26,10 @@
                 Command="{Binding DisplaySizeCommand}"
             />
 
+            <Button
+                Text="SafeArea"
+                Command="{Binding SafeAreaCommand}"
+            />
         </VerticalStackLayout>
     </ScrollView>
  

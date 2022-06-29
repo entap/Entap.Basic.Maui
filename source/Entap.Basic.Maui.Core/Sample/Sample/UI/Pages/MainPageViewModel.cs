@@ -23,6 +23,12 @@ namespace Sample
         {
             await PageManager.Navigation.PushAsync<DisplaySizePage>(new DisplaySizePageViewModel());
         });
+
+        public ProcessCommand SafeAreaCommand => new(async () =>
+        {
+            await PageManager.Navigation.PushAsync<SafeAreaPage>(new SafeAreaPageViewModel());
+        });
+        
     }
 }
 

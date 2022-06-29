@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             xmlns:ios="clr-namespace:Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;assembly=Microsoft.Maui.Controls"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.SafeAreaPage"
+             Title="SafeAreaPage"
+             x:DataType="local:SafeAreaPageViewModel"
+             x:Name="this"
+             ios:Page.UseSafeArea="False"
+>
+    <ContentPage.Behaviors>
+        <basic:GetPageSafeAreaBehavior
+            x:Name="getPageSafeAreaBehavior"
+        />
+
+    </ContentPage.Behaviors>
+    <VerticalStackLayout
+        VerticalOptions="EndAndExpand"
+    >
+
+        <Grid
+            VerticalOptions="EndAndExpand"
+            ColumnDefinitions="*,*,*"
+            BackgroundColor="{x:StaticResource Primary}">
+            <Grid.Behaviors>
+                <basic:SafeAreaLayoutBehavior
+                    PositionFlags="Top,Bottom"
+                    SafeArea="{Binding Source={x:Reference getPageSafeAreaBehavior}, Path=SafeArea}"
+                />
+
+            </Grid.Behaviors>
+            <Button
+                Grid.Column="0"
+                Text="Menu1"
+            />
+            <Button
+                Grid.Column="1"
+                Text="Menu2"
+            />
+            <Button
+                Grid.Column="2"
+                Text="Menu3"
+            />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>
