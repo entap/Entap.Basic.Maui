@@ -37,6 +37,8 @@
 	  <None Remove="Shared\DisplaySizeManager\" />
 	  <None Remove="Platforms\iOS\Modules\" />
 	  <None Remove="Shared\Behaviors\SafeAreaBehavior\" />
+	  <None Remove="Shared\Mappers\" />
+	  <None Remove="Shared\Mappers\iOS\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -56,6 +58,8 @@
 	  <Folder Include="Shared\DisplaySizeManager\" />
 	  <Folder Include="Platforms\iOS\Modules\" />
 	  <Folder Include="Shared\Behaviors\SafeAreaBehavior\" />
+	  <Folder Include="Shared\Mappers\" />
+	  <Folder Include="Shared\Mappers\iOS\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
