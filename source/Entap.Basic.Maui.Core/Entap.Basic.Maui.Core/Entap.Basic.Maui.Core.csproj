@@ -19,6 +19,21 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 	</PropertyGroup>
 
+	<ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-android')) != true">
+		<Compile Remove="**\**\*.Android.cs" />
+		<None Include="**\**\*.Android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true">
+		<Compile Remove="**\**\*.iOS.cs" />
+		<None Include="**\**\*.iOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+
+	<ItemGroup Condition="$(TargetFramework.Contains('-windows')) != true ">
+		<Compile Remove="**\*.Windows.cs" />
+		<None Include="**\*.Windows.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+
 	<ItemGroup>
 	  <None Remove="Platforms\Android\" />
 	  <None Remove="Platforms\iOS\" />
@@ -39,6 +54,8 @@
 	  <None Remove="Shared\Behaviors\SafeAreaBehavior\" />
 	  <None Remove="Shared\Mappers\" />
 	  <None Remove="Shared\Mappers\iOS\" />
+	  <None Remove="Shared\Mappers\Android\" />
+	  <None Remove="Shared\Mappers\Android\AutofillHints\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -60,8 +77,13 @@
 	  <Folder Include="Shared\Behaviors\SafeAreaBehavior\" />
 	  <Folder Include="Shared\Mappers\" />
 	  <Folder Include="Shared\Mappers\iOS\" />
+	  <Folder Include="Shared\Mappers\Android\" />
+	  <Folder Include="Shared\Mappers\Android\AutofillHints\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
+    </ItemGroup>
+    <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+      <PackageReference Include="Xamarin.AndroidX.AutoFill" Version="1.1.0.13" />
     </ItemGroup>
 </Project>
