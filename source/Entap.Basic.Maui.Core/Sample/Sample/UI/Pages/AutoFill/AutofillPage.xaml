@@ -1,0 +1,785 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:sys="clr-namespace:System;assembly=mscorlib"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.AutofillPage"
+             Title="AutofillPage">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <Style x:Key="titleLableStyle" TargetType="Label">
+                <Setter Property="Margin" Value="0,16,0,0"></Setter>
+            </Style>
+
+        </ResourceDictionary>
+
+    </ContentPage.Resources>
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="16"
+        >
+            <!-- iOS -->
+            <VerticalStackLayout
+                IsVisible="{OnPlatform False, iOS=True}"
+            >
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Url"
+                />
+                <Entry
+                    Keyboard="Url"
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Url"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="NamePrefix"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="NamePrefix"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Name"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Name"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="NameSuffix"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="NameSuffix"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="GivenName"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="GivenName"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="MiddleName"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="MiddleName"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="FamilyName"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="FamilyName"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Nickname"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Nickname"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="OrganizationName"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="OrganizationName"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="JobTitle"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="JobTitle"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Location"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Location"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="FullStreetAddress"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="FullStreetAddress"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="StreetAddressLine1"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="StreetAddressLine1"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="StreetAddressLine2"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="StreetAddressLine2"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AddressCity"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="AddressCity"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AddressCityAndState"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="AddressCityAndState"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AddressState"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="AddressState"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="PostalCode"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="PostalCode"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Sublocality"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Sublocality"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="CountryName"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="CountryName"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Username"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Username"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="Password"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="Password"
+                    IsPassword="True"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="NewPassword"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="NewPassword"
+                    IsPassword="True"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="OneTimeCode"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="OneTimeCode"
+                    IsPassword="True"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="EmailAddress"
+                />
+                <Entry
+                    Keyboard="Email"
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="EmailAddress"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="TelephoneNumber"
+                />
+                <Entry
+                    Keyboard="Telephone"
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="TelephoneNumber"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="CreditCardNumber"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="CreditCardNumber"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="DateTime"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="DateTime"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="FlightNumber"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="FlightNumber"
+                />
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="ShipmentTrackingNumber"
+                />
+                <Entry
+                    basic:iOSEntryTextContentTypeMapper.TextContentType="ShipmentTrackingNumber"
+                />
+            </VerticalStackLayout>
+
+            <!-- Android -->
+            <VerticalStackLayout
+                IsVisible="{OnPlatform False, Android=True}"
+            >
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintBirthDateDay"
+                />
+                <Picker>
+                    <Picker.ItemsSource>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintBirthDateDay"/>
+                        </x:Array>
+                    </Picker.ItemsSource>
+                </Picker>
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintBirthDateDay"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintBirthDateFull"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintBirthDateFull"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintBirthDateMonth"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintBirthDateMonth"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintBirthDateYear"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintBirthDateYear"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintCreditCardExpirationDate"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintCreditCardExpirationDate"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintCreditCardExpirationDay"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintCreditCardExpirationDay"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintCreditCardExpirationMonth"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintCreditCardExpirationMonth"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintCreditCardExpirationYear"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintCreditCardExpirationYear"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintCreditCardNumber"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintCreditCardNumber"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintCreditCardSecurityCode"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintCreditCardSecurityCode"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintEmailAddress"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintEmailAddress"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintGender"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintGender"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintNewPassword"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintNewPassword"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintNewUsername"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintNewUsername"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPassword"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPassword"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonName"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonName"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonNameFamily"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonNameFamily"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonNameGiven"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonNameGiven"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonNameMiddle"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonNameMiddle"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonNameMiddleInitial"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonNameMiddleInitial"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonNamePrefix"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonNamePrefix"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPersonNameSuffix"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPersonNameSuffix"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPhoneCountryCode"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPhoneCountryCode"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPhoneNational"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPhoneNational"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPhoneNumber"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPhoneNumber"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPhoneNumberDevice"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPhoneNumberDevice"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddress"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddress"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressCountry"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressCountry"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressExtendedAddress"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressExtendedAddress"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressExtendedPostalCode"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressExtendedPostalCode"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressLocality"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressLocality"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressRegion"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressRegion"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressStreetAddress"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressStreetAddress"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalCode"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalCode"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintSmsOtp"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintSmsOtp"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintUsername"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintUsername"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHint2FaAppOtp"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHint2FaAppOtp"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintEmailOtp"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintEmailOtp"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintNotApplicable"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintNotApplicable"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressAptNumber"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressAptNumber"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPostalAddressDependentLocality"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPostalAddressDependentLocality"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintPromoCode"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintPromoCode"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintUpiVpa"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintUpiVpa"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+                <Label
+                    Style="{StaticResource titleLableStyle}"
+                    Text="AutofillHintWifiPassword"
+                />
+                <Entry>
+                    <basic:AndroidAutofillHintsMapper.AutofillHints>
+                        <x:Array Type="{x:Type x:String}">
+                            <x:Static Member="basic:AutofillHints.AutofillHintWifiPassword"/>
+                        </x:Array>
+                    </basic:AndroidAutofillHintsMapper.AutofillHints>
+                </Entry>
+
+            </VerticalStackLayout>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

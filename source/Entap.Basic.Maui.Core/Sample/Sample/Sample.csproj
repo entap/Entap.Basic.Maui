@@ -55,6 +55,7 @@
 	  <None Remove="UI\Pages\Process\" />
 	  <None Remove="UI\Pages\DisplaySize\" />
 	  <None Remove="UI\Pages\SafeArea\" />
+	  <None Remove="UI\Pages\Autofill\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="UI\" />
@@ -63,5 +64,7 @@
 	  <Folder Include="UI\Pages\Process\" />
 	  <Folder Include="UI\Pages\DisplaySize\" />
 	  <Folder Include="UI\Pages\SafeArea\" />
+	  <Folder Include="UI\Pages\Autofill\" />
 	</ItemGroup>
+
 </Project>

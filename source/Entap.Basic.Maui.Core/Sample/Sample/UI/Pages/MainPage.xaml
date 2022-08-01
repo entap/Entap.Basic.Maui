@@ -6,7 +6,7 @@
              x:DataType="local:MainPageViewModel">
 			 
     <ScrollView>
-        <VerticalStackLayout 
+        <VerticalStackLayout
             Spacing="25" 
             Padding="30,0" 
             VerticalOptions="Center">
@@ -29,6 +29,11 @@
             <Button
                 Text="SafeArea"
                 Command="{Binding SafeAreaCommand}"
+            />
+
+            <Button
+                Text="Autofill"
+                Command="{Binding AutofillCommand}"
             />
         </VerticalStackLayout>
     </ScrollView>
