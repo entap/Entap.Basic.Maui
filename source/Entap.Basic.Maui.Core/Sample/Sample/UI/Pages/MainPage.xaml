@@ -35,6 +35,11 @@
                 Text="Autofill"
                 Command="{Binding AutofillCommand}"
             />
+
+            <Button
+                Text="KeyboardOverlapping"
+                Command="{Binding KeyboardOverlappingCommand}"
+            />
         </VerticalStackLayout>
     </ScrollView>
  

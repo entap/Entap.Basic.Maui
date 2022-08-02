@@ -56,6 +56,7 @@
 	  <None Remove="Shared\Mappers\iOS\" />
 	  <None Remove="Shared\Mappers\Android\" />
 	  <None Remove="Shared\Mappers\Android\AutofillHints\" />
+	  <None Remove="Shared\Behaviors\KeyboardOverlapping\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -79,6 +80,7 @@
 	  <Folder Include="Shared\Mappers\iOS\" />
 	  <Folder Include="Shared\Mappers\Android\" />
 	  <Folder Include="Shared\Mappers\Android\AutofillHints\" />
+	  <Folder Include="Shared\Behaviors\KeyboardOverlapping\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />

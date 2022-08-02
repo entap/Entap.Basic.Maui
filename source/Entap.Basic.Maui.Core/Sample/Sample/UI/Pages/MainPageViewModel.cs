@@ -28,12 +28,16 @@ namespace Sample
         {
             await PageManager.Navigation.PushAsync<SafeAreaPage>(new SafeAreaPageViewModel());
         });
-
+        
         public ProcessCommand AutofillCommand => new(async () =>
         {
             await PageManager.Navigation.PushAsync<AutofillPage>(new AutofillPageViewModel());
         });
 
+        public ProcessCommand KeyboardOverlappingCommand => new(async () =>
+        {
+            await PageManager.Navigation.PushAsync<KeyboardOverlappingPage>(new KeyboardOverlappingPageViewModel());
+        });
         
     }
 }
