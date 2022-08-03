@@ -1,0 +1,45 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.EventTriggerCallMethodBehaviorPage">
+    <StackLayout>
+        <WebView
+            x:Name="webView"
+            VerticalOptions="FillAndExpand"
+            Source="https://entap.co.jp/"
+        />
+
+        <HorizontalStackLayout
+            Padding="8"
+            Spacing="8"
+        >
+            <Button
+                x:Name="backButton"
+                Text="←"
+                IsEnabled="{Binding Source={x:Reference webView}, Path=CanGoBack}"
+            >
+                <Button.Behaviors>
+                    <basic:EventTriggerCallMethodBehavior
+                        EventName="Clicked"
+                        TargetObject="{x:Reference webView}"
+                        MethodName="GoBack"
+                    />
+                </Button.Behaviors>
+            </Button>
+            <Button
+                x:Name="forwardButton"
+                Text="→"
+                IsEnabled="{Binding Source={x:Reference webView}, Path=CanGoForward}"
+            >
+                <Button.Behaviors>
+                    <basic:EventTriggerCallMethodBehavior
+                        EventName="Clicked"
+                        TargetObject="{x:Reference webView}"
+                        MethodName="GoForward"
+                    />
+                </Button.Behaviors>
+            </Button>
+        </HorizontalStackLayout>
+    </StackLayout>
+</ContentPage>

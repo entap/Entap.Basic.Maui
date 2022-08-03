@@ -40,6 +40,11 @@
                 Text="KeyboardOverlapping"
                 Command="{Binding KeyboardOverlappingCommand}"
             />
+
+            <Button
+                Text="EventTriggerCallMethodBehavior"
+                Command="{Binding EventTriggerCallMethodBehaviorCommand}"
+            />
         </VerticalStackLayout>
     </ScrollView>
  

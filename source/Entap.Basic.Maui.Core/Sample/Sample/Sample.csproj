@@ -57,6 +57,7 @@
 	  <None Remove="UI\Pages\SafeArea\" />
 	  <None Remove="UI\Pages\Autofill\" />
 	  <None Remove="UI\Pages\KeyboardOverlapping\" />
+	  <None Remove="UI\Pages\EventTriggerCallMethodBehavior\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="UI\" />
@@ -67,6 +68,7 @@
 	  <Folder Include="UI\Pages\SafeArea\" />
 	  <Folder Include="UI\Pages\Autofill\" />
 	  <Folder Include="UI\Pages\KeyboardOverlapping\" />
+	  <Folder Include="UI\Pages\EventTriggerCallMethodBehavior\" />
 	</ItemGroup>
 
 </Project>

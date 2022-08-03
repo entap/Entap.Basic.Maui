@@ -38,7 +38,12 @@ namespace Sample
         {
             await PageManager.Navigation.PushAsync<KeyboardOverlappingPage>(new KeyboardOverlappingPageViewModel());
         });
-        
+
+        public ProcessCommand EventTriggerCallMethodBehaviorCommand => new(async () =>
+        {
+            await PageManager.Navigation.PushAsync<EventTriggerCallMethodBehaviorPage>(new EventTriggerCallMethodBehaviorPageViewModel());
+        });
+
     }
 }
 
