@@ -44,6 +44,10 @@ namespace Sample
             await PageManager.Navigation.PushAsync<EventTriggerCallMethodBehaviorPage>(new EventTriggerCallMethodBehaviorPageViewModel());
         });
 
+        public ProcessCommand PaddingBehaviorCommand => new(async () =>
+        {
+            await PageManager.Navigation.PushAsync<PaddingBehaviorPage>(new PaddingBehaviorPageViewModel());
+        });
     }
 }
 

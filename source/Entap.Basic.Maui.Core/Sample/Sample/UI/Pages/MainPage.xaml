@@ -45,6 +45,11 @@
                 Text="EventTriggerCallMethodBehavior"
                 Command="{Binding EventTriggerCallMethodBehaviorCommand}"
             />
+
+            <Button
+                Text="PaddingBehavior"
+                Command="{Binding PaddingBehaviorCommand}"
+            />
         </VerticalStackLayout>
     </ScrollView>
  

@@ -58,6 +58,7 @@
 	  <None Remove="UI\Pages\Autofill\" />
 	  <None Remove="UI\Pages\KeyboardOverlapping\" />
 	  <None Remove="UI\Pages\EventTriggerCallMethodBehavior\" />
+	  <None Remove="UI\Pages\PaddingBehavior\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="UI\" />
@@ -69,6 +70,7 @@
 	  <Folder Include="UI\Pages\Autofill\" />
 	  <Folder Include="UI\Pages\KeyboardOverlapping\" />
 	  <Folder Include="UI\Pages\EventTriggerCallMethodBehavior\" />
+	  <Folder Include="UI\Pages\PaddingBehavior\" />
 	</ItemGroup>
 
 </Project>

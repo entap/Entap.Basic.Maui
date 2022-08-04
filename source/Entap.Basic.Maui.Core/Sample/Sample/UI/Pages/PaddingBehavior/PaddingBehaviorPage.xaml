@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.PaddingBehaviorPage"
+             Title="PaddingBehaviorPage">
+    <VerticalStackLayout
+        Padding="16"
+        Spacing="16"
+    >
+        <Entry
+            BackgroundColor="LightGray"
+            Placeholder="PaddingBehavior不使用"
+        />
+        <Entry
+            BackgroundColor="LightGray"
+            Placeholder="PaddingBehavior使用"
+        >
+            <Entry.Behaviors>
+                <basic:PaddingBehavior
+                    Padding="16"
+                />
+            </Entry.Behaviors>
+        </Entry>
+    </VerticalStackLayout>
+</ContentPage>
