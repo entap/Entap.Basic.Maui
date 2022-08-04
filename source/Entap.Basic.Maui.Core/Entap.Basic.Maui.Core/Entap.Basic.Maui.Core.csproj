@@ -57,6 +57,7 @@
 	  <None Remove="Shared\Mappers\Android\" />
 	  <None Remove="Shared\Mappers\Android\AutofillHints\" />
 	  <None Remove="Shared\Behaviors\KeyboardOverlapping\" />
+	  <None Remove="Shared\Behaviors\PaddingBehavior\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -81,6 +82,7 @@
 	  <Folder Include="Shared\Mappers\Android\" />
 	  <Folder Include="Shared\Mappers\Android\AutofillHints\" />
 	  <Folder Include="Shared\Behaviors\KeyboardOverlapping\" />
+	  <Folder Include="Shared\Behaviors\PaddingBehavior\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
