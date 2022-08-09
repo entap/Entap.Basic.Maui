@@ -4,6 +4,7 @@
   * [DisplaySizeManager](#displaysizemanager)  
 * Behaviors
   * [EventTriggerCallMethodBehavior](#eventtriggercallmethodbehavior)
+  * [KeyboardOverlappingBehavior](#keyboardoverlappingbehavior)
   * [SizeChangedBehavior](#sizechangedbehavior)
   * [SafeArea](#safearea関連)
 
@@ -54,7 +55,12 @@ ViewModelからのページ遷移をサポートする。
 [サンプル](/source/Entap.Basic.Maui.Core/README.md#eventtriggercallmethodbehavior)では、
 ボタンクリック時にWebViewのGoBack、GoForwardを実行。  
 
-## SizeChangedBehavior
+## KeyboardOverlappingBehavior
+* 対象：iOS  
+* キーボード表示時に、キーボードの高さ分をView.Margin.Bottomに指定することでViewが隠れるのを防止する。  
+※使用方法は[サンプル](/source/Entap.Basic.Maui.Core/Sample/Sample/UI/Pages/KeyboardOverlapping/KeyboardOverlappingPage.xaml)参照。  
+
+## SizeChanged
 * VisualElement.SizeChangeイベント発火に、Width/Heightを取得可能。
 * SizeChangedCommandを(ICommand<Size>)バインド可能。
 
