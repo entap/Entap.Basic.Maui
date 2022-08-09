@@ -3,6 +3,7 @@
   * [PageManager](#pagemanager)  
   * [DisplaySizeManager](#displaysizemanager)  
 * Behaviors
+  * [EventTriggerCallMethodBehavior](#eventtriggercallmethodbehavior)
   * [SizeChangedBehavior](#sizechangedbehavior)
   * [SafeArea](#safearea関連)
 
@@ -47,6 +48,11 @@ ViewModelからのページ遷移をサポートする。
 | MacCatalyst | ✖️ |
 | Tizen | 未確認 |
 | WIndows | 未確認 |
+
+## EventTriggerCallMethodBehavior
+* 任意のイベント発火時に指定したオブジェクトのメソッドを実行する  
+[サンプル](/source/Entap.Basic.Maui.Core/README.md#eventtriggercallmethodbehavior)では、
+ボタンクリック時にWebViewのGoBack、GoForwardを実行。  
 
 ## SizeChangedBehavior
 * VisualElement.SizeChangeイベント発火に、Width/Heightを取得可能。
