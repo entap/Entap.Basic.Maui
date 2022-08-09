@@ -65,7 +65,7 @@ ViewModelからのページ遷移をサポートする。
 * 対象：Android  
 * Android.Views.View.Paddingを設定する。  
 ※使用方法は[サンプル](/source/Entap.Basic.Maui.Core/Sample/Sample/UI/Pages/PaddingBehavior/PaddingBehaviorPage.xaml)参照。  
-<img src="/images/PaddingBehavior.png" width="150" />
+<img src="images/PaddingBehavior.png" width="150" />
 
 ## SizeChanged
 * VisualElement.SizeChangeイベント発火に、Width/Heightを取得可能。
