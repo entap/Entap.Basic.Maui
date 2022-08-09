@@ -5,6 +5,7 @@
 * Behaviors
   * [EventTriggerCallMethodBehavior](#eventtriggercallmethodbehavior)
   * [KeyboardOverlappingBehavior](#keyboardoverlappingbehavior)
+  * [PaddingBehavior](#paddingbehavior)
   * [SizeChangedBehavior](#sizechangedbehavior)
   * [SafeArea](#safearea関連)
 
@@ -59,6 +60,12 @@ ViewModelからのページ遷移をサポートする。
 * 対象：iOS  
 * キーボード表示時に、キーボードの高さ分をView.Margin.Bottomに指定することでViewが隠れるのを防止する。  
 ※使用方法は[サンプル](/source/Entap.Basic.Maui.Core/Sample/Sample/UI/Pages/KeyboardOverlapping/KeyboardOverlappingPage.xaml)参照。  
+
+## PaddingBehavior
+* 対象：Android  
+* Android.Views.View.Paddingを設定する。  
+※使用方法は[サンプル](/source/Entap.Basic.Maui.Core/Sample/Sample/UI/Pages/PaddingBehavior/PaddingBehaviorPage.xaml)参照。  
+<img src="/images/PaddingBehavior.png" width="150" />
 
 ## SizeChanged
 * VisualElement.SizeChangeイベント発火に、Width/Heightを取得可能。
