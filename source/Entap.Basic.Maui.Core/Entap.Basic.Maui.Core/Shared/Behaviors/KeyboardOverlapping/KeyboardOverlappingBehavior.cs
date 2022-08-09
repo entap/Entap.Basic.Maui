@@ -1,10 +1,10 @@
 ﻿using System;
 namespace Entap.Basic.Maui.Core
 {
-    public partial class KeyboardOverlappingBehavioir : BindableBehavior<View>
+    public partial class KeyboardOverlappingBehavior : BindableBehavior<View>
     {
         const double DefaulfBottomMargin = 2d;
-        public KeyboardOverlappingBehavioir()
+        public KeyboardOverlappingBehavior()
         {
         }
 
@@ -13,7 +13,7 @@ namespace Entap.Basic.Maui.Core
         /// キーボード表示時のViewとKeyboardとのMargin
         /// </summary>
         public static readonly BindableProperty BottomMarginProperty =
-            BindableProperty.CreateAttached("BottomMargin", typeof(double), typeof(KeyboardOverlappingBehavioir), DefaulfBottomMargin);
+            BindableProperty.CreateAttached("BottomMargin", typeof(double), typeof(KeyboardOverlappingBehavior), DefaulfBottomMargin);
 
         public static double GetBottomMargin(BindableObject view)
         {

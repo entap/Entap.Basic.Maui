@@ -4,7 +4,7 @@ using UIKit;
 
 namespace Entap.Basic.Maui.Core
 {
-    public partial class KeyboardOverlappingBehavioir
+    public partial class KeyboardOverlappingBehavior
     {
         // KeyboardObserver
         NSObject? _keyboardShownObserver;

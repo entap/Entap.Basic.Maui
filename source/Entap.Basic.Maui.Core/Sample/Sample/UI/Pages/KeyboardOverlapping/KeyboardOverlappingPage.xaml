@@ -13,7 +13,7 @@
             BackgroundColor="LightGray"
         >
             <Editor.Behaviors>
-                <basic:KeyboardOverlappingBehavioir/>
+                <basic:KeyboardOverlappingBehavior/>
             </Editor.Behaviors>
         </Editor>
     </StackLayout>
