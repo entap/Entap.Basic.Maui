@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.MainPage"
+             BackgroundColor="LightGray"
+             >
+
+    <ScrollView>
+        <StackLayout
+            Padding="16"
+            Spacing="4"
+        >
+            <Label
+                Text="ButtonType"
+            />
+            <basic:AppleSignInButton/>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>Continue</basic:ButtonType>
+                    <basic:ButtonStyle>Black</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>SignUp</basic:ButtonType>
+                    <basic:ButtonStyle>Black</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
+
+            <Label
+                Margin="0,16,0,0"
+                Text="ButtonStyle"
+            />
+            <basic:AppleSignInButton/>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>Default</basic:ButtonType>
+                    <basic:ButtonStyle>White</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>Default</basic:ButtonType>
+                    <basic:ButtonStyle>WhiteOutline</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
+
+            <Label
+                Margin="0,16,0,0"
+                Text="Size, CornerRadius"
+            />
+
+            <basic:AppleSignInButton
+                HorizontalOptions="Center"
+                HeightRequest="48"
+                WidthRequest="200"
+                CornerRadius="24"
+                Command="{Binding ACommand}"
+            />
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>
+
