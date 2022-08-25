@@ -11,7 +11,16 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
-			});
+			})
+			.ConfigureMauiHandlers(handlers =>
+			{
+#if IOS || MACCATALYST
+				handlers.AddHandler<Entap.Basic.Maui.Auth.Apple.AppleSignInButton, Entap.Basic.Maui.Auth.Apple.AppleSignInButtonHandler>();
+#else
+                handlers.AddHandler<Entap.Basic.Maui.Auth.Apple.AppleSignInButton, Entap.Basic.Maui.Core.DummyViewHandler>();
+#endif
+
+            });
 
 		return builder.Build();
 	}

@@ -45,4 +45,13 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="Entap.Basic.Maui.Core" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <ProjectReference Include="..\..\Entap.Basic.Maui.Auth.Apple\Entap.Basic.Maui.Auth.Apple.csproj" />
+	</ItemGroup>
 </Project>

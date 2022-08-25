@@ -1,41 +1,68 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Sample.MainPage">
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             x:Class="Sample.MainPage"
+             BackgroundColor="LightGray"
+             >
 
     <ScrollView>
-        <VerticalStackLayout
-            Spacing="25"
-            Padding="30,0"
-            VerticalOptions="Center">
+        <StackLayout
+            Padding="16"
+            Spacing="4"
+        >
+            <Label
+                Text="ButtonType"
+            />
+            <basic:AppleSignInButton/>
 
-            <Image
-                Source="dotnet_bot.png"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                HeightRequest="200"
-                HorizontalOptions="Center" />
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>Continue</basic:ButtonType>
+                    <basic:ButtonStyle>Black</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>SignUp</basic:ButtonType>
+                    <basic:ButtonStyle>Black</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
 
             <Label
-                Text="Hello, World!"
-                SemanticProperties.HeadingLevel="Level1"
-                FontSize="32"
-                HorizontalOptions="Center" />
+                Margin="0,16,0,0"
+                Text="ButtonStyle"
+            />
+            <basic:AppleSignInButton/>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>Default</basic:ButtonType>
+                    <basic:ButtonStyle>White</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
+
+            <basic:AppleSignInButton>
+                <x:Arguments>
+                    <basic:ButtonType>Default</basic:ButtonType>
+                    <basic:ButtonStyle>WhiteOutline</basic:ButtonStyle>
+                </x:Arguments>
+            </basic:AppleSignInButton>
 
             <Label
-                Text="Welcome to .NET Multi-platform App UI"
-                SemanticProperties.HeadingLevel="Level2"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                FontSize="18"
-                HorizontalOptions="Center" />
+                Margin="0,16,0,0"
+                Text="Size, CornerRadius"
+            />
 
-            <Button
-                x:Name="CounterBtn"
-                Text="Click me"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Clicked="OnCounterClicked"
-                HorizontalOptions="Center" />
-
-        </VerticalStackLayout>
+            <basic:AppleSignInButton
+                HorizontalOptions="Center"
+                HeightRequest="48"
+                WidthRequest="200"
+                CornerRadius="24"
+                Command="{Binding ACommand}"
+            />
+        </StackLayout>
     </ScrollView>
 
 </ContentPage>
