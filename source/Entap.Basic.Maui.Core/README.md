@@ -8,6 +8,8 @@
   * [PaddingBehavior](#paddingbehavior)
   * [SizeChangedBehavior](#sizechangedbehavior)
   * [SafeArea](#safearea関連)
+* Handlers
+  * [DummyViewHandler](#dummyviewhandler)
 
 
 ## PageManager
@@ -121,3 +123,26 @@ Page.UseSafeAreaを使用すると、画面下部に空白が発生する。
     </VerticalStackLayout>
 </ContentPage>
 ```
+
+## DummyViewHandler
+ハンドラーを使用してカスタムコントロール作成時、実装不要なプラットフォームに指定するダミーハンドラー  
+※実装不要なプラットフォームにもハンドラーを指定しないと、以下の例外が発生する。  
+Microsoft.Maui.Platfrom.HandlerNotFoundException(Handler not found for view)  
+### 使用例
+```csharp
+public static class MauiProgram
+{
+	public static MauiApp CreateMauiApp()
+	{
+		var builder = MauiApp.CreateBuilder();
+		builder
+			.UseMauiApp<App>()
+			.ConfigureMauiHandlers((handlers) =>
+		{
+			handlers.AddHandler<[CustomView], Entap.Basic.Maui.Core.DummyViewHandler>();
+		});
+		return builder.Build();
+	}
+}
+```
+
