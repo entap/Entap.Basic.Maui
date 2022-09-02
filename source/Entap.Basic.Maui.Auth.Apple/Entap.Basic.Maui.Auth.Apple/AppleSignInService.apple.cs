@@ -15,6 +15,12 @@ namespace Entap.Basic.Maui.Auth.Apple
 
         TaskCompletionSource<ASAuthorizationAppleIdCredential>? _tcsCredential;
 
+        public static bool IsSupported =>
+            (OperatingSystem.IsIOS() &&
+             OperatingSystem.IsIOSVersionAtLeast(13, 0)) ||
+            (OperatingSystem.IsMacCatalyst() &&
+             OperatingSystem.IsMacCatalystVersionAtLeast(13, 1));
+
         public static void Init(params AuthorizationScope[]? scopes)
         {
             PlatformInit(scopes?.ToASAuthorizationScopes());
@@ -39,12 +45,7 @@ namespace Entap.Basic.Maui.Auth.Apple
 
         public async Task<ASAuthorizationAppleIdCredential> GetCredential()
         {
-            if (OperatingSystem.IsIOS() &&
-                !OperatingSystem.IsIOSVersionAtLeast(13, 0))
-                throw new NotSupportedException();
-
-            if (OperatingSystem.IsMacCatalyst() &&
-                !OperatingSystem.IsMacCatalystVersionAtLeast(13, 1))
+            if (IsSupported)
                 throw new NotSupportedException();
 
             if (!_isInitialized)
@@ -113,6 +114,9 @@ namespace Entap.Basic.Maui.Auth.Apple
 
         public static async Task<ASAuthorizationAppleIdProviderCredentialState> GetCredentialStateAsync(string userId)
         {
+            if (IsSupported)
+                throw new NotSupportedException();
+
             var appleIdProvider = new ASAuthorizationAppleIdProvider();
             var credentialState = await appleIdProvider.GetCredentialStateAsync(userId);
             return credentialState;
