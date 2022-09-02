@@ -18,9 +18,20 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) == true OR $(TargetFramework.StartsWith('net6.0-maccatalyst')) == true">
+		<Compile Remove="**\**\*.net.cs" />
+		<None Include="**\**\*.net.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+	</ItemGroup>
+
 	<ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) != true AND $(TargetFramework.StartsWith('net6.0-maccatalyst')) != true">
 		<Compile Remove="**\**\*.apple.cs" />
 		<None Include="**\**\*.apple.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <None Remove="System.IdentityModel.Tokens.Jwt" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.22.1" />
+	</ItemGroup>
 </Project>

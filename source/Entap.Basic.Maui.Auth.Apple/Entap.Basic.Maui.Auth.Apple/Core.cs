@@ -1,5 +1,4 @@
 ﻿using System;
-using Entap.Basic.Maui.Core;
 
 namespace Entap.Basic.Maui.Auth.Apple
 {
