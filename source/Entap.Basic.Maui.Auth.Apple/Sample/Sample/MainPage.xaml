@@ -14,16 +14,22 @@
             <Label
                 Text="ButtonType"
             />
-            <basic:AppleSignInButton/>
+            <basic:AppleSignInButton
+                Clicked="AppleSignInButton_Clicked"
+            />
 
-            <basic:AppleSignInButton>
+            <basic:AppleSignInButton
+                Clicked="AppleSignInButton_Clicked"
+            >
                 <x:Arguments>
                     <basic:ButtonType>Continue</basic:ButtonType>
                     <basic:ButtonStyle>Black</basic:ButtonStyle>
                 </x:Arguments>
             </basic:AppleSignInButton>
 
-            <basic:AppleSignInButton>
+            <basic:AppleSignInButton
+                Clicked="AppleSignInButton_Clicked"
+            >
                 <x:Arguments>
                     <basic:ButtonType>SignUp</basic:ButtonType>
                     <basic:ButtonStyle>Black</basic:ButtonStyle>
@@ -34,16 +40,22 @@
                 Margin="0,16,0,0"
                 Text="ButtonStyle"
             />
-            <basic:AppleSignInButton/>
+            <basic:AppleSignInButton
+                Clicked="AppleSignInButton_Clicked"
+            />
 
-            <basic:AppleSignInButton>
+            <basic:AppleSignInButton
+                Clicked="AppleSignInButton_Clicked"
+            >
                 <x:Arguments>
                     <basic:ButtonType>Default</basic:ButtonType>
                     <basic:ButtonStyle>White</basic:ButtonStyle>
                 </x:Arguments>
             </basic:AppleSignInButton>
 
-            <basic:AppleSignInButton>
+            <basic:AppleSignInButton
+                Clicked="AppleSignInButton_Clicked"
+            >
                 <x:Arguments>
                     <basic:ButtonType>Default</basic:ButtonType>
                     <basic:ButtonStyle>WhiteOutline</basic:ButtonStyle>
@@ -60,7 +72,7 @@
                 HeightRequest="48"
                 WidthRequest="200"
                 CornerRadius="24"
-                Command="{Binding ACommand}"
+                Clicked="AppleSignInButton_Clicked"
             />
         </StackLayout>
     </ScrollView>

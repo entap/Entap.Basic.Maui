@@ -12,10 +12,10 @@
 		<ImplicitUsings>enable</ImplicitUsings>
 
 		<!-- Display name -->
-		<ApplicationTitle>Sample</ApplicationTitle>
+		<ApplicationTitle>AppleSignInSample</ApplicationTitle>
 
 		<!-- App Identifier -->
-		<ApplicationId>com.companyname.sample</ApplicationId>
+		<ApplicationId>jp.co.entap.appleSignInSample</ApplicationId>
 		<ApplicationIdGuid>84A223BF-AA92-4C7C-90BF-D43BDCA95BCC</ApplicationIdGuid>
 
 		<!-- Versions -->
@@ -30,6 +30,20 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 	</PropertyGroup>
 
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+	  <CodesignProvision>AppleSignInSample_Development</CodesignProvision>
+	  <CodesignKey>iPhone Developer</CodesignKey>
+	  <CodesignEntitlement>Entitlements.plist</CodesignEntitlement>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(TargetFramework)'=='net6.0-maccatalyst'">
+	  <_LibMonoLinkMode>Static</_LibMonoLinkMode>
+	  <_LibXamarinLinkMode>Static</_LibXamarinLinkMode>
+	  <CodesignEntitlement>Entitlements.plist</CodesignEntitlement>
+	  <CodesignProvision>AppleSignInSample_MacCatalyst_Development</CodesignProvision>
+	  <CodesignKey>Apple Development</CodesignKey>
+	  <CodesignEntitlement>Entitlements.plist</CodesignEntitlement>
+	</PropertyGroup>
 	<ItemGroup>
 		<!-- App Icon -->
 		<MauiIcon Include="Resources\AppIcon\appicon.svg" ForegroundFile="Resources\AppIcon\appiconfg.svg" Color="#512BD4" />
