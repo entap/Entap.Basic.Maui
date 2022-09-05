@@ -24,14 +24,17 @@ public partial class MainPage : ContentPage
         catch (InvalidOperationException ex)
         {
             // 初期化未済
+            System.Diagnostics.Debug.WriteLine($"{nameof(InvalidOperationException)}:{ex}");
         }
         catch (NotSupportedException ex)
         {
             // サポート外
+            System.Diagnostics.Debug.WriteLine($"{nameof(NotSupportedException)}:{ex}");
         }
         catch (OperationCanceledException ex)
         {
             // ユーザによるキャンセル
+            System.Diagnostics.Debug.WriteLine($"{nameof(OperationCanceledException)}:{ex}");
         }
         catch (Exception ex)
         {
