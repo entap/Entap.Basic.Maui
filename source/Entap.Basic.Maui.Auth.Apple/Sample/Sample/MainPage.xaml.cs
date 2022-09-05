@@ -21,8 +21,21 @@ public partial class MainPage : ContentPage
             var result = await service.SignInAsync();
             await DisplayAlert("認証済しました。", $"{result.Email}{Environment.NewLine}{result.PersonName.FullName}", "OK");
         }
+        catch (InvalidOperationException ex)
+        {
+            // 初期化未済
+        }
+        catch (NotSupportedException ex)
+        {
+            // サポート外
+        }
+        catch (OperationCanceledException ex)
+        {
+            // ユーザによるキャンセル
+        }
         catch (Exception ex)
         {
+            // 認証エラー
             System.Diagnostics.Debug.WriteLine(ex);
         }
     }
