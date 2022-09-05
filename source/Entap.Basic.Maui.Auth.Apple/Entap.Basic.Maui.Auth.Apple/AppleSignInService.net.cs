@@ -14,6 +14,11 @@ namespace Entap.Basic.Maui.Auth.Apple
         {
             throw new NotImplementedException();
         }
+
+        public static Task RegisterCredentialRevokedActionAsync(Action action, string? userId = null)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

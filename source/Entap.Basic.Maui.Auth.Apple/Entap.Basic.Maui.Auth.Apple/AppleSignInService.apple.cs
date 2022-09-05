@@ -45,7 +45,7 @@ namespace Entap.Basic.Maui.Auth.Apple
 
         public async Task<ASAuthorizationAppleIdCredential> GetCredential()
         {
-            if (IsSupported)
+            if (!IsSupported)
                 throw new NotSupportedException();
 
             if (!_isInitialized)
@@ -114,7 +114,7 @@ namespace Entap.Basic.Maui.Auth.Apple
 
         public static async Task<ASAuthorizationAppleIdProviderCredentialState> GetCredentialStateAsync(string userId)
         {
-            if (IsSupported)
+            if (!IsSupported)
                 throw new NotSupportedException();
 
             var appleIdProvider = new ASAuthorizationAppleIdProvider();
@@ -125,8 +125,13 @@ namespace Entap.Basic.Maui.Auth.Apple
         /// <summary>
         /// AppleID使用停止時の処理を登録
         /// </summary>
-        public static async Task RegisterCredentialRevokedActionAsync(string? userId, Action action)
+        /// <param name="action">使用停止後処理</param>
+        /// <param name="userId">認証済みのユーザID（認証ステータスを取得し、無効化時はactionを実行）</param>
+        public static async Task RegisterCredentialRevokedActionAsync(Action action, string? userId = null)
         {
+            if (!IsSupported)
+                throw new NotSupportedException();
+
             if (!string.IsNullOrEmpty(userId))
             {
                 var status = await GetCredentialStateAsync(userId);
@@ -144,7 +149,7 @@ namespace Entap.Basic.Maui.Auth.Apple
             var center = NSNotificationCenter.DefaultCenter;
             center.AddObserver(ASAuthorizationAppleIdProvider.CredentialRevokedNotification, (_) =>
             {
-                action.Invoke();
+                action?.Invoke();
             });
         }
     }
