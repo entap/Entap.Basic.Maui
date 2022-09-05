@@ -108,7 +108,7 @@ namespace Entap.Basic.Maui.Auth.Apple
         #region IASAuthorizationControllerPresentation Context Providing
         public UIWindow GetPresentationAnchor(ASAuthorizationController controller)
         {
-            return UIApplication.SharedApplication.KeyWindow ?? new UIWindow();
+            return Platform.GetCurrentUIViewController()?.View?.Window ?? new UIWindow();
         }
         #endregion
 
