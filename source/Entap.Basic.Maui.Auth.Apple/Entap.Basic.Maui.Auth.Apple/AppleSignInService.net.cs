@@ -5,6 +5,8 @@ namespace Entap.Basic.Maui.Auth.Apple
 {
 	public class AppleSignInService
 	{
+        public static bool IsSupported => false;
+
         public static void Init(params AuthorizationScope[]? scopes)
         {
             throw new NotImplementedException();

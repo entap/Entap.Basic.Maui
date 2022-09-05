@@ -9,8 +9,7 @@ public partial class MainPage : ContentPage
 
     void AppleSignInButton_Clicked(System.Object sender, System.EventArgs e)
     {
-        if (OperatingSystem.IsIOS() ||
-            OperatingSystem.IsMacOS())
+        if (Entap.Basic.Maui.Auth.Apple.AppleSignInService.IsSupported)
             AppleSignInAsync().ConfigureAwait(false);
     }
 

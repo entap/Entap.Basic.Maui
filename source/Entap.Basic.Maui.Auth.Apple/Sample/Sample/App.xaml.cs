@@ -7,8 +7,7 @@ public partial class App : Application
 		InitializeComponent();
 		Entap.Basic.Maui.Auth.Apple.Core.Init();
 
-        if (OperatingSystem.IsIOS() ||
-            OperatingSystem.IsMacOS())
+        if  (Entap.Basic.Maui.Auth.Apple.AppleSignInService.IsSupported)
         {
             Entap.Basic.Maui.Auth.Apple.AppleSignInService.Init(
                 Entap.Basic.Maui.Auth.Apple.AuthorizationScope.Email,
