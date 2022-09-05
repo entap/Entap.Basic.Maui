@@ -26,8 +26,6 @@
 	}
 ```
 ### 認証ボタン
-ボタンのタイプ・スタイルは変更可能。
-詳細は、[サンプル](https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Auth.Apple/Sample/Sample)参照
 ```xml
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
@@ -42,6 +40,14 @@
     </StackLayout>
 </ContentPage>
 ```
+#### サンプル画像
+ボタンのタイプ・スタイルは変更可能。
+詳細は、[サンプル](https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Auth.Apple/Sample/Sample)参照
+
+| iOS | MacOS |
+| -------- | ------- |
+| <img src="images/sign_in_with_apple_iOS.png" width="150" /> |  <img src="images/sign_in_with_apple_macOS.png" width="450" /> |
+
 
 ### 認証処理
 必要に応じて取得結果をKeyChain等に保存すること。  
