@@ -7,7 +7,7 @@ namespace Entap.Basic.Maui.Auth.Apple
 	{
         public static bool IsSupported => false;
 
-        public static void Init(params AuthorizationScope[]? scopes)
+        internal static void Init(params AuthorizationScope[]? scopes)
         {
             throw new NotImplementedException();
         }

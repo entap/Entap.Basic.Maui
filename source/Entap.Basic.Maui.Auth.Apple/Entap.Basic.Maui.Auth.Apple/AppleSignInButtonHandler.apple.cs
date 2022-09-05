@@ -69,4 +69,3 @@ namespace Entap.Basic.Maui.Auth.Apple
             };
     }
 }
-

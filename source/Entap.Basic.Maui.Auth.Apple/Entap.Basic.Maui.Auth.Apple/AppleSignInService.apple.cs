@@ -21,21 +21,15 @@ namespace Entap.Basic.Maui.Auth.Apple
             (OperatingSystem.IsMacCatalyst() &&
              OperatingSystem.IsMacCatalystVersionAtLeast(13, 1));
 
-        public static void Init(params AuthorizationScope[]? scopes)
+        internal static void Init(params AuthorizationScope[]? scopes)
         {
-            PlatformInit(scopes?.ToASAuthorizationScopes());
-        }
-
-        public static void PlatformInit(params ASAuthorizationScope[]? scopes)
-        {
-            _scopes = scopes;
+            _scopes = scopes?.ToASAuthorizationScopes();
             _isInitialized = true;
         }
 
         public AppleSignInService()
         {
         }
-
 
         public async Task<AppleIdCredential> SignInAsync()
         {
