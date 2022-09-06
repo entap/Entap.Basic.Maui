@@ -5,6 +5,10 @@ VisualStudioVersion = 25.0.1704.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entap.Basic.Maui.Chat", "Entap.Basic.Maui.Chat\Entap.Basic.Maui.Chat.csproj", "{56850E06-9C16-4509-916F-3B833E90630D}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{79967A2A-2D15-4DF3-853F-C7B1031CDADC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{40E4B40B-2806-4B22-AA18-681961401A2A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,11 +19,18 @@ Global
 		{56850E06-9C16-4509-916F-3B833E90630D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{56850E06-9C16-4509-916F-3B833E90630D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{56850E06-9C16-4509-916F-3B833E90630D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{40E4B40B-2806-4B22-AA18-681961401A2A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{40E4B40B-2806-4B22-AA18-681961401A2A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{40E4B40B-2806-4B22-AA18-681961401A2A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{40E4B40B-2806-4B22-AA18-681961401A2A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {4F44CDA5-8458-4842-852A-00591D3CBF45}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{40E4B40B-2806-4B22-AA18-681961401A2A} = {79967A2A-2D15-4DF3-853F-C7B1031CDADC}
 	EndGlobalSection
 EndGlobal
