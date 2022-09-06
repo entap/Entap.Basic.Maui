@@ -16,6 +16,15 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<PackageId>Entap.Basic.Maui.Auth.Apple</PackageId>
+		<PackageVersion>1.0.0</PackageVersion>
+		<Authors>Entap</Authors>
+		<Description>Sign in with Appleをサポートするライブラリ</Description>
+		<PackageProjectUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Auth.Apple</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>[add]Entap.Basic.Auth.Apple, Entap.Basic.Auth.Apple.Formsからの移行</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Auth.Apple</RepositoryUrl>
 	</PropertyGroup>
 
 	<ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) == true OR $(TargetFramework.StartsWith('net6.0-maccatalyst')) == true">
