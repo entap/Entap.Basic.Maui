@@ -50,8 +50,16 @@
 	</ItemGroup>
 	<ItemGroup>
 	  <None Remove="Entap.Basic.Maui.Core" />
+	  <None Remove="Modules\" />
+	  <None Remove="UI\" />
+	  <None Remove="UI\Pages\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <Folder Include="Modules\" />
+	  <Folder Include="UI\" />
+	  <Folder Include="UI\Pages\" />
 	</ItemGroup>
 </Project>
