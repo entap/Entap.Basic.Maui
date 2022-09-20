@@ -1,5 +1,6 @@
 ﻿using System;
 using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using Microsoft.Maui.Controls.Internals;
 
 namespace Entap.Basic.Maui.Chat
@@ -7,15 +8,6 @@ namespace Entap.Basic.Maui.Chat
     [Preserve(AllMembers = true)]
     public class MessageBase : INotifyPropertyChanged
     {
-        public event PropertyChangedEventHandler? PropertyChanged;
-        protected virtual void OnPropertyChanged(string propertyName)
-        {
-            if (PropertyChanged is not null)
-            {
-                PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-            }
-        }
-
         public MessageBase(string sendUserId)
         {
             SendUserId = sendUserId;
@@ -37,19 +29,14 @@ namespace Entap.Basic.Maui.Chat
         private int messageId;
         public int MessageId
         {
-            get
-            {
-                return messageId;
-            }
+            get => messageId;
             set
             {
-                if (messageId != value)
+                if (SetProperty(ref messageId, value))
                 {
-                    messageId = value;
                     if (messageId != ChatListView.NotSendMessageId)
                         ProgressVisible = false;
-                    OnPropertyChanged("MessageId");
-                    OnPropertyChanged("ResendVisible");
+                    OnPropertyChanged(nameof(ResendVisible));
                 }
             }
         }
@@ -57,18 +44,8 @@ namespace Entap.Basic.Maui.Chat
         private DateTime sendDateTime;
         public DateTime SendDateTime
         {
-            get
-            {
-                return sendDateTime;
-            }
-            set
-            {
-                if (sendDateTime != value)
-                {
-                    sendDateTime = value;
-                    OnPropertyChanged("SendDateTime");
-                }
-            }
+            get => sendDateTime;
+            set => SetProperty(ref sendDateTime, value);
         }
 
         public string? Text { get; set; }
@@ -76,52 +53,22 @@ namespace Entap.Basic.Maui.Chat
         private string? mediaUrl;
         public string? MediaUrl
         {
-            get
-            {
-                return mediaUrl;
-            }
-            set
-            {
-                if (mediaUrl != value)
-                {
-                    mediaUrl = value;
-                    OnPropertyChanged("MediaUrl");
-                }
-            }
+            get => mediaUrl;
+            set => SetProperty(ref mediaUrl, value);
         }
 
         private string? mediaThumbnailUrl;
         public string? MediaThumbnailUrl
         {
-            get
-            {
-                return mediaThumbnailUrl;
-            }
-            set
-            {
-                if (mediaThumbnailUrl != value)
-                {
-                    mediaThumbnailUrl = value;
-                    OnPropertyChanged("MediaThumbnailUrl");
-                }
-            }
+            get => mediaThumbnailUrl;
+            set => SetProperty(ref mediaThumbnailUrl, value);
         }
 
         private string? userIcon;
         public string? UserIcon
         {
-            get
-            {
-                return userIcon;
-            }
-            set
-            {
-                if (userIcon != value)
-                {
-                    userIcon = value;
-                    OnPropertyChanged("UserIcon");
-                }
-            }
+            get => userIcon;
+            set => SetProperty(ref userIcon, value);
         }
 
         /// <summary>
@@ -133,35 +80,15 @@ namespace Entap.Basic.Maui.Chat
         private int alreadyReadCount;
         public int AlreadyReadCount
         {
-            get
-            {
-                return alreadyReadCount;
-            }
-            set
-            {
-                if (alreadyReadCount != value)
-                {
-                    alreadyReadCount = value;
-                    OnPropertyChanged("AlreadyReadCount");
-                }
-            }
+            get => alreadyReadCount;
+            set => SetProperty(ref alreadyReadCount, value);
         }
 
         private bool resendVisible;
         public bool ResendVisible
         {
-            get
-            {
-                return resendVisible;
-            }
-            set
-            {
-                if (resendVisible != value)
-                {
-                    resendVisible = value;
-                    OnPropertyChanged("ResendVisible");
-                }
-            }
+            get => resendVisible;
+            set => SetProperty(ref resendVisible, value);
         }
 
         public int NotSendId { get; set; }
@@ -169,35 +96,20 @@ namespace Entap.Basic.Maui.Chat
         private bool dateVisible;
         public bool DateVisible
         {
-            get
-            {
-                return dateVisible;
-            }
-            set
-            {
-                if (dateVisible != value)
-                {
-                    dateVisible = value;
-                    OnPropertyChanged("DateVisible");
-                }
-            }
+            get => dateVisible;
+            set => SetProperty(ref dateVisible, value);
         }
 
         private double uploadProgress;
         public double UploadProgress
         {
-            get
-            {
-                return uploadProgress;
-            }
+            get => uploadProgress;
             set
             {
-                if (uploadProgress != value)
+                if (SetProperty(ref uploadProgress, value))
                 {
-                    uploadProgress = value;
                     if (uploadProgress >= 1)
                         ProgressVisible = false;
-                    OnPropertyChanged("UploadProgress");
                 }
             }
         }
@@ -209,20 +121,47 @@ namespace Entap.Basic.Maui.Chat
         private bool progressVisible;
         public bool ProgressVisible
         {
-            get
-            {
-                return progressVisible;
-            }
+            get => progressVisible;
             set
             {
-                if (progressVisible != value)
+                if (SetProperty(ref progressVisible, value))
                 {
-                    progressVisible = value;
                     if (!progressVisible)
                         UploadProgress = 0;
-                    OnPropertyChanged("ProgressVisible");
                 }
             }
         }
+
+        #region PropertyChanged
+        public event PropertyChangedEventHandler? PropertyChanged = delegate { };
+
+        /// <summary>
+        /// プロパティ値を変更し、クライアントに通知し、プロパティの変更有無を返す。
+        /// </summary>
+        /// <returns><c>true</c>, プロパティに変更あり<c>false</c>プロパティに変更なし</returns>
+        /// <typeparam name="T">プロパティの型。</typeparam>
+        /// <param name="storage">get アクセス操作子と set アクセス操作子両方を使用したプロパティへの参照。</param>
+        /// <param name="value">プロパティに必要な値。</param>
+        /// <param name="propertyName">リスナーに通知するために使用するプロパティの名前。省略可能。</param>
+        protected bool SetProperty<T>(ref T storage, T value, [CallerMemberName] string propertyName = "")
+        {
+            if (object.Equals(storage, value))
+            {
+                return false;
+            }
+            storage = value;
+            OnPropertyChanged(propertyName);
+            return true;
+        }
+
+        protected void OnPropertyChanged([CallerMemberName] string propertyName = "")
+        {
+            var handler = this.PropertyChanged;
+            if (handler != null)
+            {
+                handler(this, new PropertyChangedEventArgs(propertyName));
+            }
+        }
+        #endregion
     }
 }
