@@ -154,7 +154,7 @@ namespace Entap.Basic.Maui.Chat
                 throw new Exception($"LastReadMessageId is -1. LastReadMessageId is a mandatory property");
         }
 
-        protected override void OnPropertyChanged(string propertyName = null)
+        protected override void OnPropertyChanged(string? propertyName = null)
         {
             base.OnPropertyChanged(propertyName);
             if (propertyName == LastReadMessageIdProperty.PropertyName)
