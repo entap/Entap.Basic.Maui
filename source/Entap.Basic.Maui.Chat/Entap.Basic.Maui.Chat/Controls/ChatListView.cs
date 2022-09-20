@@ -367,7 +367,7 @@ namespace Entap.Basic.Maui.Chat
             firstVisibleItem = firstItem;
             lastVisibleItemIndex = lastIndex;
             lastVisibleItem = lastItem;
-            SendAlreadyRead(lastVisibleItem);
+            SendAlreadyRead(lastVisibleItem).ConfigureAwait(false);
         }
 
         /// <summary>
@@ -383,7 +383,7 @@ namespace Entap.Basic.Maui.Chat
             firstVisibleItem = Messages.ElementAt(firstIndex);
             lastVisibleItemIndex = lastIndex;
             lastVisibleItem = Messages.ElementAt(lastIndex);
-            SendAlreadyRead(lastVisibleItem);
+            SendAlreadyRead(lastVisibleItem).ConfigureAwait(false); ;
         }
 
         /// <summary>
