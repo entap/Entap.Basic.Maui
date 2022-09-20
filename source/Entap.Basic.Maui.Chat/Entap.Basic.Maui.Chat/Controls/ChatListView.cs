@@ -351,13 +351,7 @@ namespace Entap.Basic.Maui.Chat
         object? firstVisibleItem;
         int lastVisibleItemIndex;
         object? lastVisibleItem;
-        public object LastVisibleItem
-        {
-            get
-            {
-                return lastVisibleItem;
-            }
-        }
+        public object? LastVisibleItem => lastVisibleItem;
         ScrollDirection chatScrollDirection;
 
         /// <summary>
