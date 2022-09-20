@@ -415,7 +415,7 @@ namespace Entap.Basic.Maui.Chat
         double lastScrollY = 0;
         int lastOldRequestMessageId;
         int lastNewRequestMessageId;
-        public void OnScrolled(object sender, ScrolledEventArgs e)
+        public void OnScrolled(object? sender, ScrolledEventArgs e)
         {
             if (lastScrollY > e.ScrollY)
             {
