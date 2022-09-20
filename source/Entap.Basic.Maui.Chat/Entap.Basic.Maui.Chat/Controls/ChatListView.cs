@@ -75,7 +75,7 @@ namespace Entap.Basic.Maui.Chat
                 var first = messages.FirstOrDefault();
                 if (messages.Count() < 1)
                 {
-                    Device.BeginInvokeOnMainThread(async () =>
+                    Dispatcher.Dispatch(() =>
                     {
                         ItemsSource = _messages;
                         Opacity = 1;
@@ -109,12 +109,12 @@ namespace Entap.Basic.Maui.Chat
 
                 SetNotSendMessage();
                 DateVisibleUpdate();
-                Device.BeginInvokeOnMainThread(() =>
+                Dispatcher.Dispatch(() =>
                 {
                     ItemsSource = _messages;
                 });
                 await Task.Delay(1);
-                Device.BeginInvokeOnMainThread(async () =>
+                Dispatcher.Dispatch(async () =>
                 {
                     var lastReadMessage = _messages.Where(w => w.MessageId == LastReadMessageId).LastOrDefault();
                     if (lastReadMessage != null && _messages.Count > 0)
@@ -185,7 +185,7 @@ namespace Entap.Basic.Maui.Chat
                 //if (msgLast != null && lastVisibleMessageBase != null && (msgLast.MessageId == lastVisibleMessageBase.MessageId + 1 || lastVisibleMessageBase.MessageId == NotSendMessageId))
                 if (msgLast != null && lastVisibleMessageBase != null && secondFromLastItem != null && lastVisibleMessageBase.MessageId == secondFromLastItem.MessageId)
                 {
-                    Device.BeginInvokeOnMainThread(() =>
+                    Dispatcher.Dispatch(() =>
                     {
                         ScrollTo(msgLast, ScrollToPosition.End, true);
                         ReplaceNotSendMessage(true);
@@ -194,7 +194,7 @@ namespace Entap.Basic.Maui.Chat
                 }
                 else
                 {
-                    Device.BeginInvokeOnMainThread(async () =>
+                    Dispatcher.Dispatch(() =>
                     {
                         ReplaceNotSendMessage(true);
                         DateVisibleUpdate();
@@ -212,7 +212,7 @@ namespace Entap.Basic.Maui.Chat
                 return;
             var first = _messages.FirstOrDefault();
             DateTime dateTime = first.SendDateTime;
-            Device.BeginInvokeOnMainThread(() =>
+            Dispatcher.Dispatch(() =>
             {
                 first.DateVisible = true;
             });
@@ -226,14 +226,14 @@ namespace Entap.Basic.Maui.Chat
                 {
                     if (msg.DateVisible)
                     {
-                        Device.BeginInvokeOnMainThread(() =>
+                        Dispatcher.Dispatch(() =>
                         {
                             msg.DateVisible = false;
                         });
                     }
                     continue;
                 }
-                Device.BeginInvokeOnMainThread(() =>
+                Dispatcher.Dispatch(() =>
                 {
                     msg.DateVisible = true;
                 });
@@ -274,7 +274,7 @@ namespace Entap.Basic.Maui.Chat
             _messages.AddRange(addNotSendList);
             if (isScrolled)
             {
-                Device.BeginInvokeOnMainThread(() =>
+                Dispatcher.Dispatch(() =>
                 {
                     ScrollTo(_messages.LastOrDefault(), ScrollToPosition.End, true);
                 });
@@ -299,7 +299,7 @@ namespace Entap.Basic.Maui.Chat
                     IsRunningGetOldMessage = false;
                     return;
                 }
-                Device.BeginInvokeOnMainThread(() =>
+                Dispatcher.Dispatch(() =>
                 {
                     IsEnabled = false;
                     foreach (var msg in messages)
@@ -335,7 +335,7 @@ namespace Entap.Basic.Maui.Chat
                     IsRunningGetNewMessage = false;
                     return;
                 }
-                Device.BeginInvokeOnMainThread(() =>
+                Dispatcher.Dispatch(() =>
                 {
                     _messages.AddRange(messages);
                     ReplaceNotSendMessage(false);
