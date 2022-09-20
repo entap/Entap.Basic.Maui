@@ -27,6 +27,7 @@
 	  <None Remove="Controls\" />
 	  <None Remove="Models\" />
 	  <None Remove="Interfaces\" />
+	  <None Remove="Modules\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -37,5 +38,6 @@
 	  <Folder Include="Controls\" />
 	  <Folder Include="Models\" />
 	  <Folder Include="Interfaces\" />
+	  <Folder Include="Modules\" />
 	</ItemGroup>
 </Project>
