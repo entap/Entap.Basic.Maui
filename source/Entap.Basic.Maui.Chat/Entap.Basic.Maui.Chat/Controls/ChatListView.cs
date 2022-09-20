@@ -210,9 +210,9 @@ namespace Entap.Basic.Maui.Chat
         /// </summary>
         void DateVisibleUpdate()
         {
-            if (_messages.Count < 1)
-                return;
             var first = _messages.FirstOrDefault();
+            if (first is null) return;
+
             DateTime dateTime = first.SendDateTime;
             Dispatcher.Dispatch(() =>
             {
