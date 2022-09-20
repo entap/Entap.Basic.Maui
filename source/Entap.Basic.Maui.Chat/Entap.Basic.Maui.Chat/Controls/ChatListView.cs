@@ -308,7 +308,7 @@ namespace Entap.Basic.Maui.Chat
                     {
                         _messages.Insert(0, msg);
                     }
-                    if (Device.RuntimePlatform == Device.Android)
+                    if (DeviceInfo.Platform == DevicePlatform.Android)
                         ScrollTo(firstVisibleItem, ScrollToPosition.Start, false);
                     IsEnabled = true;
                     // firstVisibleItemIndexを一度ありえない値にしておかないとどんどん前のデータの読み込みが行われる
@@ -494,7 +494,7 @@ namespace Entap.Basic.Maui.Chat
                 // 一番最初に送るメッセージは日付を表示させる
                 msg.DateVisible = true;
             }
-            if (Device.RuntimePlatform == Device.Android)
+            if (DeviceInfo.Platform == DevicePlatform.Android)
             {
                 var dummy = new MessageBase(Settings.Current.ChatService.GetUserId()) {  MessageType = (int)MessageType.Image };
                 _messages.Add(dummy);
@@ -507,7 +507,7 @@ namespace Entap.Basic.Maui.Chat
                 _messages.Remove(dummy);
                 return true;
             }
-            else if (Device.RuntimePlatform == Device.iOS)
+            else if (DeviceInfo.Platform == DevicePlatform.iOS)
             {
                 _messages.Add(msg);
                 ScrollTo(msg, ScrollToPosition.End, true);
