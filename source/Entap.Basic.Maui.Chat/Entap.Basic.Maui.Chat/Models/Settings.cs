@@ -1,11 +1,11 @@
 ﻿using System;
 namespace Entap.Basic.Maui.Chat
 {
-    [Preserve(AllMembers = true)]
     /// <summary>
     /// 設定
     /// </summary>
-	public class Settings
+    [Preserve(AllMembers = true)]
+    public class Settings
 	{
         static readonly Lazy<Settings> _settings = new Lazy<Settings>(() => new Settings());
 
