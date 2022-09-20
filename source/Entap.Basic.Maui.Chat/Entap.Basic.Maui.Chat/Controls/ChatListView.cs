@@ -114,7 +114,7 @@ namespace Entap.Basic.Maui.Chat
                     ItemsSource = _messages;
                 });
                 await Task.Delay(1);
-                Dispatcher.Dispatch(async () =>
+                Dispatcher.Dispatch(() =>
                 {
                     var lastReadMessage = _messages.Where(w => w.MessageId == LastReadMessageId).LastOrDefault();
                     if (lastReadMessage != null && _messages.Count > 0)
