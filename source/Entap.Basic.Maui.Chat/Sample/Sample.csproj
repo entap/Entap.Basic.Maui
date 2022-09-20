@@ -45,4 +45,13 @@
 		<MauiAsset Include="Resources\Raw\**" LogicalName="%(RecursiveDir)%(Filename)%(Extension)" />
 	</ItemGroup>
 
+	<ItemGroup>
+	  <ProjectReference Include="..\Entap.Basic.Maui.Chat\Entap.Basic.Maui.Chat.csproj" />
+	</ItemGroup>
+	<ItemGroup>
+	  <None Remove="Entap.Basic.Maui.Core" />
+	</ItemGroup>
+	<ItemGroup>
+	  <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.0" />
+	</ItemGroup>
 </Project>
