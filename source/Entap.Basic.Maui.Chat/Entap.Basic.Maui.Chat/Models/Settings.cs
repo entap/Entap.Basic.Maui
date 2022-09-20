@@ -7,7 +7,7 @@ namespace Entap.Basic.Maui.Chat
     /// </summary>
 	public class Settings
 	{
-        static Lazy<Settings> _settings = new Lazy<Settings>(() => new Settings());
+        static readonly Lazy<Settings> _settings = new Lazy<Settings>(() => new Settings());
 
         /// <summary>
         /// Current plugin implementation to use
