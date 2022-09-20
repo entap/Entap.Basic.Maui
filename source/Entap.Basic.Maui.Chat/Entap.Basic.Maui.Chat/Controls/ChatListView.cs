@@ -11,7 +11,7 @@ namespace Entap.Basic.Maui.Chat
         const int DefaultRemainingItemsThreshold = 7;
         public static int NotSendMessageId = -1;
         int lastReadMessageId;
-        ObservableCollection<MessageBase> _messages;
+        readonly ObservableCollection<MessageBase> _messages = new ObservableCollection<MessageBase>();
         public ObservableCollection<MessageBase> Messages => _messages;
 
         public ChatListView() : base(ListViewCachingStrategy.RecycleElement)
@@ -73,7 +73,6 @@ namespace Entap.Basic.Maui.Chat
                     messages = messages.Reverse();
                 }
                 var first = messages.FirstOrDefault();
-                _messages = new ObservableCollection<MessageBase>(messages);
                 if (messages.Count() < 1)
                 {
                     Device.BeginInvokeOnMainThread(async () =>
@@ -347,9 +346,9 @@ namespace Entap.Basic.Maui.Chat
         }
 
         int firstVisibleItemIndex;
-        object firstVisibleItem;
+        object? firstVisibleItem;
         int lastVisibleItemIndex;
-        object lastVisibleItem;
+        object? lastVisibleItem;
         public object LastVisibleItem
         {
             get
