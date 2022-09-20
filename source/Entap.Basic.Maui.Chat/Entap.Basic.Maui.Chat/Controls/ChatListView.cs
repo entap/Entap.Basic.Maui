@@ -172,12 +172,14 @@ namespace Entap.Basic.Maui.Chat
             if (e.Action == System.Collections.Specialized.NotifyCollectionChangedAction.Add)
             {
                 var msgLast = _messages.LastOrDefault();
+                if (msgLast is null) return;
+
                 var lastVisibleMessageBase = lastVisibleItem as MessageBase;
                 if (lastVisibleMessageBase is null)
                     return;
 
                 var secondFromLastItemIndex = _messages.IndexOf(msgLast) - 1;
-                MessageBase secondFromLastItem = null;
+                MessageBase? secondFromLastItem = null;
                 if (secondFromLastItemIndex >= 0)
                 {
                     secondFromLastItem = _messages[secondFromLastItemIndex];
