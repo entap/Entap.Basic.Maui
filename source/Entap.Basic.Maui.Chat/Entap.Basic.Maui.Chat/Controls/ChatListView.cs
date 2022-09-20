@@ -458,8 +458,8 @@ namespace Entap.Basic.Maui.Chat
                     IsRunningGetNewMessage = false;
                     return;
                 }
-                last = _messages.Where(w => w.NotSendId < 1 && w.MessageId > 0)?.Last();
-                if (last.MessageId + 1 == lastNewRequestMessageId)
+                last = _messages.Where(w => w.NotSendId < 1 && w.MessageId > 0)?.LastOrDefault();
+                if (last == null || last.MessageId + 1 == lastNewRequestMessageId)
                 {
                     IsRunningGetNewMessage = false;
                     return;
