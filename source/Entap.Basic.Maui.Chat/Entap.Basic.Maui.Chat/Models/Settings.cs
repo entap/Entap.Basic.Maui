@@ -14,7 +14,9 @@ namespace Entap.Basic.Maui.Chat
         /// </summary>
         public static Settings Current => _settings.Value;
 
-        public IChatService? ChatService;
+        public IChatService? _chatService;
+        public IChatService ChatService => _chatService ?? throw new InvalidOperationException($"Please call {nameof(Init)} method.");
+
         public IChatControlService? ChatControlService;
 
         /// <summary>
@@ -44,7 +46,7 @@ namespace Entap.Basic.Maui.Chat
 
         public void Init(IChatService chatService, IChatControlService? chatControlService = null)
         {
-            ChatService = chatService;
+            _chatService = chatService;
             if (chatControlService != null)
                 ChatControlService = chatControlService;
             TimeFormat = "H:mm";
