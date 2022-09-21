@@ -21,14 +21,10 @@ namespace Entap.Basic.Maui.Core
                 return;
             }
 
-            var property = GetItemsPropertyInfo<T>();
+            var list = source.ToList();
+            list.AddRange(collection);
             var method = GetOnCollectionResetMethodInfo<T>();
-
-            if (property?.GetValue(source) is List<T> list)
-            {
-                list.AddRange(collection);
-                method?.Invoke(source, null);
-            }
+            method?.Invoke(source, null);
         }
 
         const int switchForeachThresold = 2;
@@ -47,7 +43,6 @@ namespace Entap.Basic.Maui.Core
             return false;
         }
 
-        static PropertyInfo? GetItemsPropertyInfo<T>() => typeof(ObservableCollection<T>).GetProperty("Items", BindingFlags.NonPublic | BindingFlags.Instance);
         static MethodInfo? GetOnCollectionResetMethodInfo<T>() => typeof(ObservableCollection<T>).GetMethod("OnCollectionReset", BindingFlags.NonPublic | BindingFlags.Instance);
         #endregion
     }
