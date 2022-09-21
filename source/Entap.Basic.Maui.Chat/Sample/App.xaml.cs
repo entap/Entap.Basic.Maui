@@ -9,6 +9,8 @@ public partial class App : Application
 		InitializeComponent();
 
 		PageManager.Navigation.SetNavigationMainPage<MainPage>(new MainPageViewModel());
+
+		Entap.Basic.Maui.Chat.Settings.Current.Init(new ChatService());
 	}
 }
 
