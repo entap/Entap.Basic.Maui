@@ -18,12 +18,12 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 		<PackageId>Entap.Basic.Maui.Core</PackageId>
-		<PackageVersion>1.1.0</PackageVersion>
+		<PackageVersion>1.1.1</PackageVersion>
 		<Authors>Entap</Authors>
 		<Description>Entap.Basic.Maui.Core</Description>
 		<PackageProjectUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Core</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageReleaseNotes>[add]DummyViewHandler : ハンドラーを使用してカスタムコントロール作成時、実装不要なプラットフォームに指定するダミーハンドラー</PackageReleaseNotes>
+		<PackageReleaseNotes>[fix]Entap.Basic.Maui.Core.ObservableCollectionExtensions : AddRangeでItemsプロパティが取得できず、追加されない不具合対応</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Core</RepositoryUrl>
 	</PropertyGroup>
 
