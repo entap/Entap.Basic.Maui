@@ -1,4 +1,6 @@
-﻿namespace Sample;
+﻿using Microsoft.Maui.Controls.Compatibility.Hosting;
+
+namespace Sample;
 
 public static class MauiProgram
 {
@@ -11,6 +13,13 @@ public static class MauiProgram
 			{
 				fonts.AddFont("OpenSans-Regular.ttf", "OpenSansRegular");
 				fonts.AddFont("OpenSans-Semibold.ttf", "OpenSansSemibold");
+			})
+            .UseMauiCompatibility()
+			.ConfigureMauiHandlers((handlers) =>
+			{
+#if IOS
+                handlers.AddHandler(typeof(Entap.Basic.Maui.Chat.ChatListView), typeof(Entap.Basic.Maui.Chat.Platforms.iOS.ChatListViewRenderer));
+#endif
 			});
 
 		return builder.Build();
