@@ -2,6 +2,7 @@
 using System.Collections.ObjectModel;
 using System.Windows.Input;
 using Entap.Basic.Maui.Core;
+using Microsoft.Maui.Controls.Compatibility;
 
 namespace Entap.Basic.Maui.Chat
 {
@@ -110,11 +111,11 @@ namespace Entap.Basic.Maui.Chat
 
                 SetNotSendMessage();
                 DateVisibleUpdate();
-                Dispatcher.Dispatch(() =>
+                await Dispatcher.DispatchAsync(async () =>
                 {
                     ItemsSource = _messages;
+                    await Task.Delay(1);
                 });
-                await Task.Delay(1);
                 Dispatcher.Dispatch(() =>
                 {
                     var lastReadMessage = _messages.Where(w => w.MessageId == LastReadMessageId).LastOrDefault();
