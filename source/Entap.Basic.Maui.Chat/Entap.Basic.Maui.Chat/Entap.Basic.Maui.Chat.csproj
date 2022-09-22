@@ -30,6 +30,7 @@
 	  <None Remove="Modules\" />
 	  <None Remove="Constants\" />
 	  <None Remove="Entap.Basic.Maui.Core" />
+	  <None Remove="ValueConverters\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -42,6 +43,7 @@
 	  <Folder Include="Interfaces\" />
 	  <Folder Include="Modules\" />
 	  <Folder Include="Constants\" />
+	  <Folder Include="ValueConverters\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.1" />
