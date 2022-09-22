@@ -42,6 +42,7 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
         {
             base.OnElementPropertyChanged(sender, e);
 
+            if (_dynamicResizedEditor is null) return;
             if (e.PropertyName == DynamicResizedEditor.TextProperty.PropertyName)
             {
                 ResizeIfNeeded();
@@ -62,6 +63,7 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
         }
         void EditorCursorMoveEnd()
         {
+            if (Control is null) return;
             Task.Run(async () =>
             {
                 await Task.Delay(250);
@@ -86,6 +88,8 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
 
         void OnFocused(object? sender, FocusEventArgs e)
         {
+            if (_dynamicResizedEditor is null) return;
+
             _dynamicResizedEditor.HeightRequest = -1;
             Control.ScrollEnabled = true;
             ResizeIfNeeded();
@@ -94,25 +98,31 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
 
         void OnUnFocused(object? sender, FocusEventArgs e)
         {
+            if (_dynamicResizedEditor is null) return;
+
             _dynamicResizedEditor.HeightRequest = _dynamicResizedEditor.MinimumHeightRequest;
             Control.ScrollEnabled = false;
         }
 
         void ResizeIfNeeded()
         {
-            var dynamicResizedEditor = Element as DynamicResizedEditor;
+            if (_dynamicResizedEditor is null) return;
+
             var fitHeight = Control.SizeThatFits(new CoreGraphics.CGSize(Control.Bounds.Width, NFloat.MaxValue)).Height;
             var lineCount = CalculateLineCount(fitHeight);
             if (lineCount != _lineCount)
             {
-                dynamicResizedEditor.Resize(lineCount);
-                Control.ScrollEnabled = (lineCount > dynamicResizedEditor.MaxDisplayLineCount);
+                _dynamicResizedEditor.Resize(lineCount);
+                Control.ScrollEnabled = (lineCount > _dynamicResizedEditor.MaxDisplayLineCount);
                 _lineCount = lineCount;
             }
         }
 
         int CalculateLineCount(NFloat fitHeight)
         {
+            if (Control is null) return 0;
+            if (Control.Font is null) return 0;
+
             var fontHeight = Control.Font.LineHeight;
             return (int)Math.Round(fitHeight / fontHeight);
         }
