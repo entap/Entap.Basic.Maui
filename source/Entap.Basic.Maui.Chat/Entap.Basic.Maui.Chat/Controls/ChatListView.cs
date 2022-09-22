@@ -75,7 +75,7 @@ namespace Entap.Basic.Maui.Chat
                 }
                 var first = messages.FirstOrDefault();
                 _messages = new ObservableCollection<MessageBase>(messages);
-                if (messages.Count() < 1)
+                if (!messages.Any())
                 {
                     Dispatcher.Dispatch(() =>
                     {
@@ -119,7 +119,7 @@ namespace Entap.Basic.Maui.Chat
                 Dispatcher.Dispatch(() =>
                 {
                     var lastReadMessage = _messages.Where(w => w.MessageId == LastReadMessageId).LastOrDefault();
-                    if (lastReadMessage != null && _messages.Count > 0)
+                    if (lastReadMessage != null && _messages.Any())
                     {
                         var index = _messages.IndexOf(lastReadMessage);
                         if (_messages.Count - 1 <= index)
@@ -485,7 +485,7 @@ namespace Entap.Basic.Maui.Chat
                 return false;
             if (msg.MessageType == (int)MessageType.Image || msg.MessageType == (int)MessageType.Video)
                 msg.ProgressVisible = true;
-            if (_messages.Count < 1)
+            if (!_messages.Any())
             {
                 // 一番最初に送るメッセージは日付を表示させる
                 msg.DateVisible = true;
