@@ -8,6 +8,11 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+            <Entry
+                Placeholder="LastReadMessageId"
+                Text="{Binding LastReadMessageId}"
+                Keyboard="Numeric"
+            />
             <Button
                 x:Name="ChatButton"
                 Text="Chat"

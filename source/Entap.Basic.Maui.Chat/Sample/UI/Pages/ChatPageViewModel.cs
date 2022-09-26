@@ -5,7 +5,8 @@ namespace Sample
 {
 	public class ChatPageViewModel : PageViewModelBase
 	{
-		public ChatPageViewModel()
+        readonly ChatRoom _chatRoom;
+        public ChatPageViewModel(ChatRoom chatRoom)
 		{
 		}
 	}
