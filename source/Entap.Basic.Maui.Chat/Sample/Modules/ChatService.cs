@@ -37,7 +37,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i=messageId; i < messageId + 10; i++)
             {
-                result.Add(new MessageBase(DummyMyId) { MessageId = i, Text = i.ToString(), SendDateTime = DateTime.Now });
+                result.Add(new MessageBase(DummyMyId) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now });
             }
             return result;
         }
@@ -50,7 +50,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i = messageId; i > 0 && i > messageId - 10; i--)
             {
-                result.Add(new MessageBase(DummyMyId) { MessageId = i, Text = i.ToString(), SendDateTime = DateTime.Now });
+                result.Add(new MessageBase(DummyMyId) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now });
             }
             return result;
         }
