@@ -4,10 +4,10 @@
              x:Class="Entap.Basic.Maui.Chat.ChatDateHeaderView">
     <Frame
         Style="{StaticResource ChatDateHeaderFrameStyle}"
-        IsVisible="{Binding DateVisible}">
+        IsVisible="{Binding Message.DateVisible}">
         <Label
             Style="{StaticResource ChatDateHeaderLabelStyle}"
-            Text="{Binding SendDateTime, Converter={StaticResource dateConverter}}"/>
+            Text="{Binding Message.SendDateTime, Converter={StaticResource dateConverter}}"/>
     </Frame>
 </ContentView>
 

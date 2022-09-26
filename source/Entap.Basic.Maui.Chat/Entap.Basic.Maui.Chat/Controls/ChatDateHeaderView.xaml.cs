@@ -11,7 +11,7 @@ public partial class ChatDateHeaderView : ContentView
     //public static readonly BindableProperty DateVisibleProperty = BindableProperty.Create(
     //    nameof(DateVisible),
     //    typeof(bool),
-    //    typeof(MessageTemplateBase),
+    //    typeof(ChatDateHeaderView),
     //    false,
     //    defaultBindingMode: BindingMode.Default);
 
@@ -26,7 +26,7 @@ public partial class ChatDateHeaderView : ContentView
     //public static readonly BindableProperty SendDateTimeProperty = BindableProperty.Create(
     //    nameof(SendDateTime),
     //    typeof(DateTime),
-    //    typeof(MessageTemplateBase),
+    //    typeof(ChatDateHeaderView),
     //    DateTime.MinValue,
     //    defaultBindingMode: BindingMode.Default);
 
