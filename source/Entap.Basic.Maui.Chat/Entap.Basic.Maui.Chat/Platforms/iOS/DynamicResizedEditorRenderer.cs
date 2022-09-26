@@ -70,7 +70,7 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
                 // エディターのカーソルを末尾に
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    if (Control.Text.Length > 0)
+                    if (Control.Text?.Length > 0)
                     {
                         var loc = Control.Text.Length - 1;
                         NSRange range = new NSRange(0, Control.Text.Length);
