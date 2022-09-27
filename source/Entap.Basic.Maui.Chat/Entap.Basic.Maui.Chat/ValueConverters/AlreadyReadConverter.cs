@@ -4,6 +4,7 @@ using System.Globalization;
 namespace Entap.Basic.Maui.Chat
 {
     [Preserve(AllMembers = true)]
+    [Obsolete($"{nameof(IsGroupChat)}のバインディングが動作しません。グループチャット使用時は{nameof(GroupAlreadyReadConverter)}を使用してください。")]
     public class AlreadyReadConverter : BindableObject, IValueConverter
     {
         public static BindableProperty IsGroupChatProperty = BindableProperty.Create("IsGroupChat", typeof(bool), typeof(AlreadyReadConverter));
