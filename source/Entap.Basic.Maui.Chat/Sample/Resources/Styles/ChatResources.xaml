@@ -1,0 +1,251 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xaml-comp compile="true" ?>
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:Sample"
+    xmlns:chat="clr-namespace:Entap.Basic.Maui.Chat;assembly=Entap.Basic.Maui.Chat"
+>
+    <chat:TimeConverter x:Key="timeConverter"/>
+    <chat:DateConverter x:Key="dateConverter"/>
+    <chat:BoolReverseConverter x:Key="boolReverseConverter"/>
+    <chat:GroupAlreadyReadConverter x:Key="groupAlreadyReadConverter"/>
+
+    <Style
+        x:Key="ChatDateHeaderFrameStyle" TargetType="Frame"
+    >
+        <Setter Property="WidthRequest" Value="60"/>
+        <Setter Property="HeightRequest" Value="16"/>
+        <Setter Property="HorizontalOptions" Value="CenterAndExpand"/>
+        <Setter Property="BackgroundColor" Value="{StaticResource ChatDateHeaderFrameBackgroundColor}"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BorderColor" Value="Transparent"/>
+    </Style>
+
+    <Style
+        x:Key="ChatDateHeaderLabelStyle" TargetType="Label"
+    >
+        <Setter Property="HorizontalTextAlignment" Value="Center"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="MinimumWidthRequest" Value="30"/>
+        <Setter Property="TextColor" Value="{StaticResource ChatDateHeaderLabelTextColor}"/>
+    </Style>
+
+    <Style
+        x:Key="ChatTextMessageFrameStyle" TargetType="Frame"
+    >
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="Padding" Value="8"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BorderColor" Value="Transparent"/>
+    </Style>
+
+    <Style
+        x:Key="MyChatTextMessageFrameStyle" TargetType="Frame" BasedOn="{StaticResource ChatTextMessageFrameStyle}"
+    >
+        <Setter Property="BackgroundColor" Value="{StaticResource ChatMyTextMessageBackgroundColor}"/>
+    </Style>
+
+    <Style
+        x:Key="OthersChatTextMessageFrameStyle" TargetType="Frame" BasedOn="{StaticResource ChatTextMessageFrameStyle}"
+    >
+        <Setter Property="BackgroundColor" Value="{StaticResource ChatOthersTextMessageBackgroundColor}"/>
+    </Style>
+
+    <Style
+        x:Key="ChatTextMessageLabelStyle" TargetType="Label"
+    >
+        <Setter Property="FontSize" Value="16"/>
+        <Setter Property="VerticalTextAlignment" Value="Center"/>
+        <Setter Property="Text" Value="{Binding Text}"/>
+    </Style>
+
+    <Style
+        x:Key="ChatImageMessageFrameStyle" TargetType="Frame"
+    >
+        <Setter Property="HasShadow" Value="False"/>
+        <Setter Property="Padding" Value="0"/>
+        <Setter Property="CornerRadius" Value="8"/>
+        <Setter Property="BorderColor" Value="Transparent"/>
+        <Setter Property="IsClippedToBounds" Value="True"/>
+    </Style>
+
+    <Style
+        x:Key="ChatImageMessageImageStyle" TargetType="Image"
+    >
+        <Setter Property="Aspect" Value="AspectFill"/>
+        <Setter Property="WidthRequest" Value="210"/>
+        <Setter Property="HeightRequest" Value="120"/>
+        <Setter Property="Source" Value="{Binding MediaUrl}"/>
+    </Style>
+
+    <ControlTemplate x:Key="MyMessageControlTemplateBase">
+        <StackLayout
+            BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
+            Spacing="0"
+            Margin="16,6,16,6"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="Transparent">
+            <chat:ChatDateHeaderView/>
+            <StackLayout
+                Orientation="Horizontal">
+                <StackLayout
+                    WidthRequest="60"
+                    HorizontalOptions="EndAndExpand"
+                    VerticalOptions="EndAndExpand"
+                    Spacing="0"
+                    Margin="0,0,6,0">
+                    <Label
+                        HorizontalTextAlignment="End"
+                        IsVisible="{Binding Message.ResendVisible, Converter={StaticResource boolReverseConverter}}"
+                        FontSize="10">
+                        <Label.Text>
+                            <MultiBinding Converter="{StaticResource groupAlreadyReadConverter}">
+                                <Binding Path="Message.AlreadyReadCount" />
+                                <Binding Path="IsGroupChat" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                    <Label
+                        HorizontalTextAlignment="End"
+                        IsVisible="{Binding Message.ResendVisible, Converter={StaticResource boolReverseConverter}}"
+                        FontSize="10"
+                        Text="{Binding Message.SendDateTime, Converter={StaticResource timeConverter}}"
+                    />
+                </StackLayout>
+                <ContentPresenter
+                    HorizontalOptions="End"
+                />
+            </StackLayout>
+        </StackLayout>
+    </ControlTemplate>
+
+    <ControlTemplate x:Key="OthersMessageControlTemplateBase">
+        <Grid
+            BindingContext="{Binding Source={RelativeSource TemplatedParent}}"
+            Margin="16,6,16,6"
+            RowDefinitions="Auto,16,Auto,8,Auto"
+            ColumnDefinitions="Auto,8,Auto,4,*"
+            HorizontalOptions="FillAndExpand"
+            BackgroundColor="Transparent">
+            <chat:ChatDateHeaderView
+                Grid.Row="0"
+                Grid.Column="0" Grid.ColumnSpan="5"
+            />
+            <Frame
+                Grid.Row="2" Grid.RowSpan="3"
+                Grid.Column="0"
+                VerticalOptions="Start"
+                CornerRadius="16"
+                Padding="0"
+                BorderColor="Transparent"
+                IsClippedToBounds="True"
+            >
+                <Image
+                    WidthRequest="32"
+                    HeightRequest="32"
+                    Source="https://entap.co.jp/wp-content/uploads/2020/12/AdobeStock_191796066-150x150.jpeg"
+                />
+            </Frame>
+            <Label
+                Grid.Row="2"
+                Grid.Column="2" Grid.ColumnSpan="3"
+                Text="テスト太郎"
+            />
+            <ContentPresenter
+                Grid.Row="4"
+                Grid.Column="2"
+            />
+
+            <Label
+                Grid.Row="4"
+                Grid.Column="4"
+                HorizontalOptions="StartAndExpand"
+                VerticalTextAlignment="End"
+                WidthRequest="60"
+                FontSize="10"
+                Text="{Binding Message.SendDateTime, Converter={StaticResource timeConverter}}"
+            />
+        </Grid>
+    </ControlTemplate>
+
+    <DataTemplate x:Key="myTextMessageTemplate" x:DataType="chat:MessageBase">
+        <ViewCell
+            x:Name="Cell">
+            <chat:MyMessageTemplate
+                IsGroupChat="{Binding Source={RelativeSource AncestorType={x:Type local:ChatPageViewModel}}, Path=ChatRoom.IsGroup}"
+                Message="{Binding}"
+            >
+                <Frame
+                    Style="{StaticResource MyChatTextMessageFrameStyle}">
+                    <Label
+                        Style="{StaticResource ChatTextMessageLabelStyle}"/>
+                </Frame>
+            </chat:MyMessageTemplate>
+        </ViewCell>
+    </DataTemplate>
+
+    <DataTemplate x:Key="othersTextMessageTemplate" x:DataType="chat:MessageBase">
+        <ViewCell
+            x:Name="Cell">
+            <chat:OthersMessageTemplate
+                Message="{Binding}"
+            >
+                <Frame
+                    Style="{StaticResource OthersChatTextMessageFrameStyle}">
+                    <Label
+                        Style="{StaticResource ChatTextMessageLabelStyle}"/>
+                </Frame>
+            </chat:OthersMessageTemplate>
+        </ViewCell>
+    </DataTemplate>
+
+    <DataTemplate x:Key="myImageMessageTemplate" x:DataType="chat:MessageBase">
+        <ViewCell
+            x:Name="Cell">
+            <chat:MyMessageTemplate
+                Message="{Binding}"
+            >
+                <Frame
+                    Style="{StaticResource ChatImageMessageFrameStyle}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:ChatPageViewModel}}, Path=ImageTappedCommand}"
+                            CommandParameter="{Binding}"
+                        />
+                    </Frame.GestureRecognizers>
+                    <Image
+                        Style="{StaticResource ChatImageMessageImageStyle}"/>
+                </Frame>
+            </chat:MyMessageTemplate>
+        </ViewCell>
+    </DataTemplate>
+    <DataTemplate x:Key="othersImageMessageTemplate" x:DataType="chat:MessageBase">
+        <ViewCell
+            x:Name="Cell">
+            <chat:OthersMessageTemplate
+                Message="{Binding}"
+            >
+                <Frame
+                    Style="{StaticResource ChatImageMessageFrameStyle}">
+                    <Frame.GestureRecognizers>
+                        <TapGestureRecognizer
+                            Command="{Binding Source={RelativeSource AncestorType={x:Type local:ChatPageViewModel}}, Path=ImageTappedCommand}"
+                            CommandParameter="{Binding}"
+                        />
+                    </Frame.GestureRecognizers>
+                    <Image
+                        Style="{StaticResource ChatImageMessageImageStyle}"/>
+                </Frame>
+            </chat:OthersMessageTemplate>
+        </ViewCell>
+    </DataTemplate>
+    <chat:MessageDataTemplateSelector
+        x:Key="messageDataTemplateSelector"
+        MyTextMessageTemplate="{StaticResource myTextMessageTemplate}"
+        OthersTextMessageTemplate="{StaticResource othersTextMessageTemplate}"
+        MyImageMessageTemplate="{StaticResource myImageMessageTemplate}"
+        OthersImageMessageTemplate="{StaticResource othersImageMessageTemplate}"
+    />
+</ResourceDictionary>

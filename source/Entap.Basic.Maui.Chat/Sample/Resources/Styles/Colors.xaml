@@ -41,4 +41,9 @@
     <Color x:Key="Blue200Accent">#72ACF1</Color>
     <Color x:Key="Blue300Accent">#A7CBF6</Color>
 
+    <!-- Chat -->
+    <Color x:Key="ChatDateHeaderFrameBackgroundColor">#512BD4</Color>
+    <Color x:Key="ChatDateHeaderLabelTextColor">White</Color>
+    <Color x:Key="ChatMyTextMessageBackgroundColor">#40512BD4</Color>
+    <Color x:Key="ChatOthersTextMessageBackgroundColor">White</Color>
 </ResourceDictionary>

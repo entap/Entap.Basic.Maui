@@ -21,6 +21,7 @@
             IsGroupChat="{Binding ChatRoom.IsGroup}"
             ItemsSource="{Binding Messages, Mode=TwoWay}"
             BackgroundColor="{StaticResource Gray100}"
+            ItemTemplate="{StaticResource messageDataTemplateSelector}"
         />
 
         <StackLayout
