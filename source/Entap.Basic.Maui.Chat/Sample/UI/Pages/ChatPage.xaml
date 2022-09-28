@@ -1,6 +1,56 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:basic="http://entap.co.jp/schemas/basic"
+             xmlns:chat="clr-namespace:Entap.Basic.Maui.Chat;assembly=Entap.Basic.Maui.Chat"
+             xmlns:core="http://entap.co.jp/schemas/basic"
              x:Class="Sample.ChatPage"
              Title="ChatPage">
+    <Grid
+        RowDefinitions="*, Auto"
+    >
+        <Grid.Behaviors>
+            <basic:KeyboardOverlappingBehavior/>
+        </Grid.Behaviors>
+
+        <chat:ChatListView
+            Grid.Row="0"
+            VerticalOptions="FillAndExpand"
+            RoomId="{Binding ChatRoom.Id}"
+            LastReadMessageId="{Binding ChatRoom.LastReadMessageId}"
+            IsGroupChat="{Binding ChatRoom.IsGroup}"
+            ItemsSource="{Binding Messages, Mode=TwoWay}"
+            BackgroundColor="{StaticResource Gray100}"
+        />
+
+        <StackLayout
+            x:Name="footer"
+            Grid.Row="1"
+            Orientation="Horizontal"
+            BackgroundColor="LightGray"
+            Spacing="8"
+        >
+            <Button
+                Margin="8"
+                VerticalOptions="End"
+                Text="+"
+                Command="{Binding MenuCommand}"
+            />
+            <chat:DynamicResizedEditor
+                Margin="0,8"
+                BackgroundColor="White"
+                HorizontalOptions="FillAndExpand"
+                Placeholder="メッセージを入力…"
+                MaxDisplayLineCount="4"
+                CornerRadius="8"
+                Text="{Binding InputText}"
+            />
+            <Button
+                Margin="8"
+                VerticalOptions="End"
+                Text="↑"
+                Command="{Binding SendCommand}"
+            />
+        </StackLayout>
+    </Grid>
 </ContentPage>
