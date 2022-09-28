@@ -46,6 +46,11 @@ namespace Sample
             InputText = null;
         });
 
+        public Command<MessageBase> ImageTappedCommand => new Command<MessageBase>((message) =>
+        {
+            System.Diagnostics.Debug.WriteLine($"Image Tapped : {message.MessageId}");
+        });
+
         int GetNextMessageId()
         {
             var lastMessageId = Messages.LastOrDefault()?.MessageId ?? 0;
