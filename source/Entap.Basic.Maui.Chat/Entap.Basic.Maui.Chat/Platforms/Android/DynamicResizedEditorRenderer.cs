@@ -70,8 +70,6 @@ namespace Entap.Basic.Maui.Chat.Platforms.Android
                 _dynamicResizedEditor.Focused += OnFocused;
                 _dynamicResizedEditor.Unfocused += OnUnFocused;
                 SetOneLineSize();
-                var verticalMargin = (108 - Control.LineHeight) / 2;
-                Control.SetPadding(12, verticalMargin, 12, verticalMargin);
                 
                 SetMaxLines();
             }
