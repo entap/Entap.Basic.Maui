@@ -8,6 +8,23 @@
             Spacing="25"
             Padding="30,0"
             VerticalOptions="Center">
+            <StackLayout
+                Orientation="Horizontal"
+            >
+                <Label
+                    HorizontalOptions="FillAndExpand"
+                    VerticalTextAlignment="Center"
+                    Text="Group"
+                />
+                <Switch
+                    IsToggled="{Binding IsGroup}"
+                />
+            </StackLayout>
+
+            <Label
+                Margin="0,0,0,-25"
+                Text="LastReadMessageId"
+            />
             <Entry
                 Placeholder="LastReadMessageId"
                 Text="{Binding LastReadMessageId}"

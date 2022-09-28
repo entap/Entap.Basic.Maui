@@ -9,6 +9,13 @@ namespace Sample
 		{
 		}
 
+		bool _isGroup = true;
+		public bool IsGroup
+		{
+			get => _isGroup;
+			set => SetProperty(ref _isGroup, value);
+		}
+
 		int _lastReadMessageId = 10;
 		public int LastReadMessageId
 		{
@@ -20,7 +27,7 @@ namespace Sample
         public ProcessCommand ChatCommand => new ProcessCommand(async () =>
 		{
 			var dummyRoomId = 1;
-			var chatRoom = new ChatRoom(dummyRoomId)
+			var chatRoom = new ChatRoom(dummyRoomId, IsGroup)
 			{
 				LastReadMessageId = LastReadMessageId,
 			};
