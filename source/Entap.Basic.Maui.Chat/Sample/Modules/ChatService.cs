@@ -7,6 +7,7 @@ namespace Sample
 	public class ChatService : IChatService
 	{
         public const string DummyMyId = "MyId";
+        public const string DummyOthersId = "DummyOthersId";
         public ChatService()
 		{
 		}
@@ -37,7 +38,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i=messageId; i < messageId + 10; i++)
             {
-                result.Add(new MessageBase(DummyMyId) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now });
+                result.Add(new MessageBase(GetDummyUserId(i)) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
             }
             return result;
         }
@@ -50,10 +51,12 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i = messageId; i > 0 && i > messageId - 10; i--)
             {
-                result.Add(new MessageBase(DummyMyId) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now });
+                result.Add(new MessageBase(GetDummyUserId(i)) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
             }
             return result;
         }
+
+        string GetDummyUserId(int messageId) => messageId % 2 == 0 ? DummyMyId : DummyOthersId;
 
         public string GetNotSendMediaSaveFolderPath()
         {
