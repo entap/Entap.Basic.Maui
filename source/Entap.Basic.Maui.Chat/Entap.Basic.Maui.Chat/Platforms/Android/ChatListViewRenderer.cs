@@ -1,5 +1,7 @@
 ﻿using System;
 using Android.Content;
+using Android.Graphics.Drawables;
+using AColor = Android.Graphics.Color;
 using Microsoft.Maui.Controls.Handlers.Compatibility;
 using Microsoft.Maui.Controls.Platform;
 
@@ -14,6 +16,9 @@ namespace Entap.Basic.Maui.Chat.Platforms.Android
         {
             var _ChatListView = Element as ChatListView;
             _ChatListView?.Dispose();
+            if (Control is not null)
+                Control.Scroll -= Control_Scroll;
+
             base.Dispose(disposing);
         }
 
@@ -23,8 +28,15 @@ namespace Entap.Basic.Maui.Chat.Platforms.Android
 
             if (Control != null && e.NewElement != null)
             {
+                DisableHighlight();
                 Control.Scroll += Control_Scroll;
             }
+        }
+
+        private void DisableHighlight()
+        {
+            if (Control is null) return;
+            Control.Selector = new ColorDrawable(AColor.Transparent);
         }
 
         private void Control_Scroll(object? sender, global::Android.Widget.AbsListView.ScrollEventArgs e)

@@ -38,15 +38,19 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
             base.OnElementChanged(e);
             if (e.NewElement != null)
             {
+                DisableHighlight();
                 SubscribeKeyboardObserver();
                 if (Element is null)
                     return;
-                Element.Scrolled += OnScrolled;
+                Element.Scrolled += OnScrolled;   
             }
 
             if (e.OldElement != null)
             {
                 UnsubscribeKeyboardObserver();
+                if (Element is null)
+                    return;
+                Element.Scrolled -= OnScrolled;
             }
         }
 
@@ -55,6 +59,12 @@ namespace Entap.Basic.Maui.Chat.Platforms.iOS
             base.OnElementPropertyChanged(sender, e);
             if (e.PropertyName == ChatListView.ItemsSourceProperty.PropertyName)
                 UpdateVisibleItem();
+        }
+
+        private void DisableHighlight()
+        {
+            if (Control is null) return;
+            Control.AllowsSelection = false;
         }
 
         void OnScrolled(object? sender, ScrolledEventArgs e)
