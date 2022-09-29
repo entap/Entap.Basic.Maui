@@ -16,7 +16,22 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<PackageId>Entap.Basic.Maui.Chat</PackageId>
+		<PackageVersion>0.0.1</PackageVersion>
+		<Authors>Entap</Authors>
+		<Description>Entap.Basic.Maui.Chat</Description>
+		<PackageProjectUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Chat</PackageProjectUrl>
+		<PackageReadmeFile>README.md</PackageReadmeFile>
+		<PackageReleaseNotes>Entap.Chatから移植
+[update]MessageBase : UserNameプロパティ追加
+		</PackageReleaseNotes>
+		<RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Chat</RepositoryUrl>
 	</PropertyGroup>
+
+    <ItemGroup>
+        <None Include="../README.md" Pack="true" PackagePath="" />
+    </ItemGroup>
 
 	<ItemGroup>
 	  <None Remove="Platforms\Android\" />
