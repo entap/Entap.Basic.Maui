@@ -44,10 +44,11 @@ namespace Sample
 
         IEnumerable<MessageBase> CreateNewMessage(int messageId)
         {
+            if (messageId > 20) return null;
             var result = new List<MessageBase>();
             for (int i=messageId; i < messageId + 10; i++)
             {
-                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2, UserIcon = DummyUserIcon });
+                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2, UserIcon = DummyUserIcon, UserName = "テスト 太郎" });
             }
             return result;
         }
@@ -60,7 +61,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i = messageId; i > 0 && i > messageId - 10; i--)
             {
-                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2, UserIcon = DummyUserIcon });
+                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2, UserIcon = DummyUserIcon, UserName = "テスト 太郎" });
             }
             return result;
         }

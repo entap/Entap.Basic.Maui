@@ -69,6 +69,13 @@ namespace Entap.Basic.Maui.Chat
             set => SetProperty(ref userIcon, value);
         }
 
+        private string? userName;
+        public string? UserName
+        {
+            get => userName;
+            set => SetProperty(ref userName, value);
+        }
+
         /// <summary>
         /// 1:テキスト, 2:画像, 3:動画
         /// </summary>
