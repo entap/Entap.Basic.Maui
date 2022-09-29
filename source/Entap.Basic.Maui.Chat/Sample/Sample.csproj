@@ -28,6 +28,9 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</SupportedOSPlatformVersion>
 		<TargetPlatformMinVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'windows'">10.0.17763.0</TargetPlatformMinVersion>
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
+
+		<GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+		<GenerateTargetFrameworkAttribute>false</GenerateTargetFrameworkAttribute>    
 	</PropertyGroup>
 
 	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
@@ -57,9 +60,19 @@
 	  <None Remove="UI\" />
 	  <None Remove="UI\Pages\" />
 	  <None Remove="Models\" />
+	  <None Remove="Entap.Basic.SQLite" />
+	  <None Remove="SQLitePCLRaw.core" />
+	  <None Remove="SQLitePCLRaw.provider.sqlite3" />
+	  <None Remove="SQLitePCLRaw.bundle_green" />
+	  <None Remove="SQLitePCLRaw.provider.dynamic_cdecl" />
 	</ItemGroup>
 	<ItemGroup>
 	  <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.1" />
+	  <PackageReference Include="Entap.Basic.SQLite" Version="0.0.1" />
+	  <PackageReference Include="SQLitePCLRaw.core" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.sqlite3" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.bundle_green" Version="2.1.2" />
+	  <PackageReference Include="SQLitePCLRaw.provider.dynamic_cdecl" Version="2.1.2" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Modules\" />
