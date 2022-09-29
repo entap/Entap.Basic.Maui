@@ -7,9 +7,8 @@ namespace Entap.Basic.Maui.Chat
     [Preserve(AllMembers = true)]
     public class MessageBase : INotifyPropertyChanged
     {
-        public MessageBase(string sendUserId)
+        public MessageBase()
         {
-            SendUserId = sendUserId;
         }
 
         public MessageBase(MessageBase notSendMessage)
@@ -74,7 +73,7 @@ namespace Entap.Basic.Maui.Chat
         /// 1:テキスト, 2:画像, 3:動画
         /// </summary>
         public int MessageType { get; set; }
-        public string SendUserId { get; set; }
+        public string? SendUserId { get; set; }
 
         private int alreadyReadCount;
         public int AlreadyReadCount

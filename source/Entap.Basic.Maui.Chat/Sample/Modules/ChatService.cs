@@ -38,7 +38,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i=messageId; i < messageId + 10; i++)
             {
-                result.Add(new MessageBase(GetDummyUserId(i)) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
+                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
             }
             return result;
         }
@@ -51,7 +51,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i = messageId; i > 0 && i > messageId - 10; i--)
             {
-                result.Add(new MessageBase(GetDummyUserId(i)) { MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
+                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
             }
             return result;
         }

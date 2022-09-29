@@ -492,7 +492,7 @@ namespace Entap.Basic.Maui.Chat
             }
             if (DeviceInfo.Platform == DevicePlatform.Android)
             {
-                var dummy = new MessageBase(Settings.Current.ChatService.GetUserId()) {  MessageType = (int)MessageType.Image };
+                var dummy = new MessageBase() { SendUserId = Settings.Current.ChatService.GetUserId(), MessageType = (int)MessageType.Image };
                 _messages.Add(dummy);
                 _messages.Add(msg);
                 // ScrollTo(msg, ScrollToPosition.End, false) だけだと画像送信した際に追加したメッセージのViewが表示されない
