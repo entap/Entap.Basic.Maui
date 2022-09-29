@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.ObjectModel;
 using Entap.Basic.Maui.Chat;
+using Entap.Basic.Maui.Core;
 
 namespace Sample
 {
