@@ -14,10 +14,15 @@ namespace Sample
 
         public void AddNotSendMessages(int roomId, ObservableCollection<MessageBase> messageBases)
         {
+            var items = NotSendMessageManager.Instance.GetItems(roomId);
+            if (items?.Any() != true) return;
+
+            messageBases.AddRange(items);
         }
 
         public void DeleteNotSendMessageData(int id)
         {
+            NotSendMessageManager.Instance.DeleteItem(id);
         }
 
         public void Dispose()
@@ -85,6 +90,8 @@ namespace Sample
 
         public void SaveNotSendMessageData(int roomId, MessageBase messageBase, string fileName = null)
         {
+            var notSendMessage = new NotSendMessage(roomId, messageBase, fileName);
+            NotSendMessageManager.Instance.SaveItem(notSendMessage);
         }
 
         public Task<bool> SendAlreadyRead(int roomId, int messageId)

@@ -39,6 +39,7 @@ namespace Sample
             var messageId = ChatListView.NotSendMessageId;
             var message = new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", ResendVisible = true };
 
+            SendMessage(message);
             Messages.Add(message);
         });
 
@@ -54,9 +55,19 @@ namespace Sample
             var messageId = ChatListView.NotSendMessageId;
             var message = new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, ResendVisible = true };
 
+            SendMessage(message);
             Messages.Add(message);
             InputText = null;
         });
+
+        void SendMessage(MessageBase message)
+        {
+            if (message.MessageId == ChatListView.NotSendMessageId)
+            {
+                Settings.Current.ChatService.SaveNotSendMessageData(_chatRoom.Id, message);
+                return;
+            }
+        }
 
         public ProcessCommand<MessageBase> ResendCommand => new ProcessCommand<MessageBase>(async (message) =>
         {
@@ -85,10 +96,15 @@ namespace Sample
             message.ResendVisible = false;
             message.MessageId = GetNextMessageId();
             message.SendDateTime = DateTime.Now;
+
+            if (message is not NotSendMessage notSendMessage) return;
+            Settings.Current.ChatService.DeleteNotSendMessageData(notSendMessage.Id);
         }
 
         void DeleteMessage(MessageBase message)
         {
+            if (message is not NotSendMessage notSendMessage) return;
+                Settings.Current.ChatService.DeleteNotSendMessageData(notSendMessage.Id);
             Messages.Remove(message);
         }
 
