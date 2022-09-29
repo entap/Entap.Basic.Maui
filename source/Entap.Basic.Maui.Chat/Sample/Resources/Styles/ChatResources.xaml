@@ -117,6 +117,18 @@
                 <ContentPresenter
                     HorizontalOptions="End"
                 />
+                <ImageButton
+                    IsVisible="{Binding Message.ResendVisible}"
+                    Margin="6,0,0,0"
+                    VerticalOptions="CenterAndExpand"
+                    BackgroundColor="Transparent"
+                    WidthRequest="25"
+                    HeightRequest="25"
+                    Source="resend_icon.png"
+                    Aspect="AspectFit"
+                    Command="{Binding Source={RelativeSource AncestorType={x:Type local:ChatPageViewModel}}, Path=ResendCommand}"
+                    CommandParameter="{Binding Message}"
+                />
             </StackLayout>
         </StackLayout>
     </ControlTemplate>

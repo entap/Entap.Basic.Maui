@@ -31,8 +31,14 @@ namespace Sample
 
         public Command MenuCommand => new Command(() =>
         {
-            var messageId = GetNextMessageId();
-            var message = new MessageBase(ChatService.DummyMyId) { MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", SendDateTime = DateTime.Now };
+            // 通信成功時
+            //var messageId = GetNextMessageId();
+            //var message = new MessageBase(ChatService.DummyMyId) { MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", SendDateTime = DateTime.Now };
+
+            // 通信エラー時
+            var messageId = ChatListView.NotSendMessageId;
+            var message = new MessageBase(ChatService.DummyMyId) { MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", ResendVisible = true };
+
             Messages.Add(message);
         });
 
@@ -40,11 +46,51 @@ namespace Sample
         {
             if (string.IsNullOrWhiteSpace(InputText)) return;
 
-            var messageId = GetNextMessageId();
-            var message = new MessageBase(ChatService.DummyMyId) { MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, SendDateTime = DateTime.Now };
+            // 通信成功時
+            //var messageId = GetNextMessageId();
+            //var message = new MessageBase(ChatService.DummyMyId) { MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, SendDateTime = DateTime.Now };
+
+            // 通信エラー時
+            var messageId = ChatListView.NotSendMessageId;
+            var message = new MessageBase(ChatService.DummyMyId) { MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, ResendVisible = true };
+
             Messages.Add(message);
             InputText = null;
         });
+
+        public ProcessCommand<MessageBase> ResendCommand => new ProcessCommand<MessageBase>(async (message) =>
+        {
+            System.Diagnostics.Debug.WriteLine($"Resend : {message.MessageId}");
+
+            const string Resend = "再送する";
+            const string Cancel = "取り消し";
+
+            var options = new string[] { Resend, Cancel };
+            var option = await Application.Current.MainPage.DisplayActionSheet(null, "キャンセル", null, options);
+            switch (option)
+            {
+                case Resend:
+                    ResendMessage(message);
+                    break;
+                case Cancel:
+                    DeleteMessage(message);
+                    break;
+                default:
+                    break;
+            }
+        });
+
+        void ResendMessage(MessageBase message)
+        {
+            message.ResendVisible = false;
+            message.MessageId = GetNextMessageId();
+            message.SendDateTime = DateTime.Now;
+        }
+
+        void DeleteMessage(MessageBase message)
+        {
+            Messages.Remove(message);
+        }
 
         public Command<MessageBase> ImageTappedCommand => new Command<MessageBase>((message) =>
         {
