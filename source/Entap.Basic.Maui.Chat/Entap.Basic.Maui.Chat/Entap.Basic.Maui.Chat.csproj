@@ -25,6 +25,8 @@
 		<PackageReadmeFile>README.md</PackageReadmeFile>
 		<PackageReleaseNotes>Entap.Chatから移植
 [update]MessageBase : UserNameプロパティ追加
+[add]MyMessageTemplate, OthersMessageTemplate : スタイルを指定することで独自のメッセージテンプレートに差し替えが可能となります。
+[add]GroupAlreadyReadConverter : AlreadyReadConverterにおいて、IsGroupChatプロパティへのバインディングが反映されない不具合対応のため追加
 		</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Chat</RepositoryUrl>
 	</PropertyGroup>
