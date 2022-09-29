@@ -93,9 +93,12 @@ namespace Sample
 
         void ResendMessage(MessageBase message)
         {
+            _messages.Remove(message);
+
             message.ResendVisible = false;
             message.MessageId = GetNextMessageId();
             message.SendDateTime = DateTime.Now;
+            _messages.Add(message);
 
             if (message is not NotSendMessage notSendMessage) return;
             Settings.Current.ChatService.DeleteNotSendMessageData(notSendMessage.Id);
@@ -115,7 +118,9 @@ namespace Sample
 
         int GetNextMessageId()
         {
-            var lastMessageId = Messages.LastOrDefault()?.MessageId ?? 0;
+            var lastMessageId = Messages
+                .LastOrDefault((message) => message.MessageId != ChatListView.NotSendMessageId)?
+                .MessageId ?? 0;
             return lastMessageId + 1;
         }
     }
