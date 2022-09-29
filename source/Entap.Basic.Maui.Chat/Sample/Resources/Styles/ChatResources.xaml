@@ -157,7 +157,7 @@
                 <Image
                     WidthRequest="32"
                     HeightRequest="32"
-                    Source="https://entap.co.jp/wp-content/uploads/2020/12/AdobeStock_191796066-150x150.jpeg"
+                    Source="{Binding Message.UserIcon}"
                 />
             </Frame>
             <Label

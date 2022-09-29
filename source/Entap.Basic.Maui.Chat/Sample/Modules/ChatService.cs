@@ -9,6 +9,9 @@ namespace Sample
 	{
         public const string DummyMyId = "MyId";
         public const string DummyOthersId = "DummyOthersId";
+
+        const string DummyUserIcon = "https://entap.co.jp/wp-content/uploads/2021/09/IMG_0052-scaled-e1630721195341.jpg";
+
         public ChatService()
 		{
 		}
@@ -44,7 +47,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i=messageId; i < messageId + 10; i++)
             {
-                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
+                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2, UserIcon = DummyUserIcon });
             }
             return result;
         }
@@ -57,7 +60,7 @@ namespace Sample
             var result = new List<MessageBase>();
             for (int i = messageId; i > 0 && i > messageId - 10; i--)
             {
-                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2 });
+                result.Add(new MessageBase() { SendUserId = GetDummyUserId(i), MessageId = i, MessageType = (int)MessageType.Text, Text = i.ToString(), SendDateTime = DateTime.Now, AlreadyReadCount = 2, UserIcon = DummyUserIcon });
             }
             return result;
         }
