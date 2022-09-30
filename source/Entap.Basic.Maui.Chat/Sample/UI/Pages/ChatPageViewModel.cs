@@ -39,7 +39,7 @@ namespace Sample
             var messageId = ChatListView.NotSendMessageId;
             var message = new NotSendMessage(_chatRoom.Id, new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", ResendVisible = true });
 
-            SendMessage(message);
+            SendMessageAsync(message).ConfigureAwait(false);
             Messages.Add(message);
         });
 
@@ -55,19 +55,43 @@ namespace Sample
             var messageId = ChatListView.NotSendMessageId;
             var message = new NotSendMessage(_chatRoom.Id, new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, ResendVisible = true });
 
-            SendMessage(message);
+            SendMessageAsync(message).ConfigureAwait(false);
             Messages.Add(message);
             InputText = null;
         });
 
-        void SendMessage(MessageBase message)
+        async Task SendMessageAsync(MessageBase message)
         {
+            if (message.MessageType == (int)MessageType.Image ||
+                message.MessageType == (int)MessageType.Video)
+            {
+                message.ResendVisible = false;
+                message.ProgressVisible = true;
+                await Task.Run(async() =>
+                {
+                    for (int i = 0; i <= 100; i++)
+                    {
+                        await Task.Delay(50);
+                        message.UploadProgress = i * 0.01;
+                    }
+                    message.ProgressVisible = false;
+                    if (message.MessageId == ChatListView.NotSendMessageId)
+                        message.ResendVisible = true;
+                });
+            };
+
             if (message.MessageId == ChatListView.NotSendMessageId)
             {
                 Settings.Current.ChatService.SaveNotSendMessageData(_chatRoom.Id, message);
                 return;
             }
         }
+
+        public Command<MessageBase> CancelSendingMessageCommand => new Command<MessageBase>((message) =>
+        {
+            message.ProgressVisible = false;
+            message.ResendVisible = true;
+        });
 
         public ProcessCommand<MessageBase> ResendCommand => new ProcessCommand<MessageBase>(async (message) =>
         {
@@ -91,17 +115,19 @@ namespace Sample
             }
         });
 
-        void ResendMessage(MessageBase message)
+        async void ResendMessage(MessageBase message)
         {
-            _messages.Remove(message);
+            if (message is not NotSendMessage notSendMessage) return;
+
+            Settings.Current.ChatService.DeleteNotSendMessageData(notSendMessage.Id);
 
             message.ResendVisible = false;
             message.MessageId = GetNextMessageId();
             message.SendDateTime = DateTime.Now;
-            _messages.Add(message);
 
-            if (message is not NotSendMessage notSendMessage) return;
-            Settings.Current.ChatService.DeleteNotSendMessageData(notSendMessage.Id);
+            await SendMessageAsync(message);
+            _messages.Remove(notSendMessage);
+            _messages.Add(message);
         }
 
         void DeleteMessage(MessageBase message)

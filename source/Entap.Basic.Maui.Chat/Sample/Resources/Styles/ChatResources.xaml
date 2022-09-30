@@ -6,6 +6,9 @@
     xmlns:local="clr-namespace:Sample"
     xmlns:chat="clr-namespace:Entap.Basic.Maui.Chat;assembly=Entap.Basic.Maui.Chat"
 >
+    <x:Double x:Key="ImageWidth">210</x:Double>
+    <x:Double x:Key="ImageHeight">120</x:Double>
+
     <chat:TimeConverter x:Key="timeConverter"/>
     <chat:DateConverter x:Key="dateConverter"/>
     <chat:BoolReverseConverter x:Key="boolReverseConverter"/>
@@ -75,8 +78,8 @@
         x:Key="ChatImageMessageImageStyle" TargetType="Image"
     >
         <Setter Property="Aspect" Value="AspectFill"/>
-        <Setter Property="WidthRequest" Value="210"/>
-        <Setter Property="HeightRequest" Value="120"/>
+        <Setter Property="WidthRequest" Value="{StaticResource ImageWidth}"/>
+        <Setter Property="HeightRequest" Value="{StaticResource ImageHeight}"/>
         <Setter Property="Source" Value="{Binding MediaUrl}"/>
     </Style>
 
@@ -227,8 +230,39 @@
                             CommandParameter="{Binding}"
                         />
                     </Frame.GestureRecognizers>
-                    <Image
-                        Style="{StaticResource ChatImageMessageImageStyle}"/>
+                    <AbsoluteLayout
+                        WidthRequest="{StaticResource ImageWidth}"
+                        HeightRequest="{StaticResource ImageHeight}"
+                    >
+                        <Image
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            Style="{StaticResource ChatImageMessageImageStyle}"/>
+                        <StackLayout
+                            Spacing="0"
+                            AbsoluteLayout.LayoutBounds="0,0,1,1"
+                            AbsoluteLayout.LayoutFlags="All"
+                            BackgroundColor="#B3000000"
+                            IsVisible="{Binding ProgressVisible}">
+                            <Button
+                                HorizontalOptions="CenterAndExpand"
+                                VerticalOptions="EndAndExpand"
+                                BackgroundColor="Transparent"
+                                Text="×"
+                                FontSize="35"
+                                Command="{Binding Source={RelativeSource AncestorType={x:Type local:ChatPageViewModel}}, Path=CancelSendingMessageCommand}"
+                                CommandParameter="{Binding}"
+                                />
+                            <ProgressBar
+                                Margin="16"
+                                Progress="{Binding UploadProgress}"
+                                HeightRequest="3"
+                                BackgroundColor="#B3000000"
+                                VerticalOptions="End"
+                                HorizontalOptions="CenterAndExpand"
+                                ProgressColor="White"/>
+                        </StackLayout>
+                    </AbsoluteLayout>
                 </Frame>
             </chat:MyMessageTemplate>
         </ViewCell>

@@ -9,7 +9,7 @@ namespace Sample
         public NotSendMessage()
         {
         }
-        public NotSendMessage(int roomId, MessageBase messageBase, string fileName)
+        public NotSendMessage(int roomId, MessageBase messageBase, string fileName = null)
         {
             MessageId = messageBase.MessageId;
             SendDateTime = messageBase.SendDateTime;
