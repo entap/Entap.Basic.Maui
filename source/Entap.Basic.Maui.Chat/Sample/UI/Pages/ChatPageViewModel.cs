@@ -37,7 +37,7 @@ namespace Sample
 
             // 通信エラー時
             var messageId = ChatListView.NotSendMessageId;
-            var message = new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", ResendVisible = true };
+            var message = new NotSendMessage(_chatRoom.Id, new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Image, MediaUrl = "https://entap.co.jp/wp-content/uploads/2020/12/top.png", ResendVisible = true });
 
             SendMessage(message);
             Messages.Add(message);
@@ -53,7 +53,7 @@ namespace Sample
 
             // 通信エラー時
             var messageId = ChatListView.NotSendMessageId;
-            var message = new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, ResendVisible = true };
+            var message = new NotSendMessage(_chatRoom.Id, new MessageBase() { SendUserId = ChatService.DummyMyId, MessageId = messageId, MessageType = (int)MessageType.Text, Text = InputText, ResendVisible = true });
 
             SendMessage(message);
             Messages.Add(message);
