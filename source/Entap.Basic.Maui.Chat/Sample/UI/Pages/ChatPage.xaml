@@ -5,7 +5,8 @@
              xmlns:chat="clr-namespace:Entap.Basic.Maui.Chat;assembly=Entap.Basic.Maui.Chat"
              xmlns:core="http://entap.co.jp/schemas/basic"
              x:Class="Sample.ChatPage"
-             Title="ChatPage">
+             Title="ChatPage"
+             BackgroundColor="LightGray">
     <Grid
         RowDefinitions="*, Auto"
     >
