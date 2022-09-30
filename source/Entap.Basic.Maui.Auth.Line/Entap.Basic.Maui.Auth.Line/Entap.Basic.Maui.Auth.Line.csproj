@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <None Remove="Entap.Basic.Auth" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Entap.Basic.Auth" Version="1.0.4" />
+  </ItemGroup>
 </Project>
