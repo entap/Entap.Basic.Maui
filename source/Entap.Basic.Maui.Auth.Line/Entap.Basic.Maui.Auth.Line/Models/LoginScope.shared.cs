@@ -1,5 +1,5 @@
 ﻿using System;
-namespace Entap.Basic.Auth.Line
+namespace Entap.Basic.Maui.Auth.Line
 {
 	/// <summary>
 	/// ログインスコープ
