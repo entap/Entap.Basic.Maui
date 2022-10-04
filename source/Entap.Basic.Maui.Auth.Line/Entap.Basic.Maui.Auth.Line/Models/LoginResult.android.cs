@@ -25,15 +25,15 @@ namespace Entap.Basic.Maui.Auth.Line
             }
         }
 
-        LineAccessTokenResponse GetLineAccessToken(LineLoginResult loginResult)
+        LineAccessTokenResponse? GetLineAccessToken(LineLoginResult loginResult)
         {
             var lineCredential = loginResult.LineCredential;
             if (lineCredential is null) return null;
-            return new LineAccessTokenResponse(loginResult.LineIdToken.RawString)
+            return new LineAccessTokenResponse
             {
                 AccessToken = lineCredential.AccessToken.TokenString,
                 ExpiresIn = (int)lineCredential.AccessToken.ExpiresInMillis,
-                IdToken = loginResult.LineIdToken.RawString
+                IdToken = loginResult.LineIdToken?.RawString
             };
         }
 
