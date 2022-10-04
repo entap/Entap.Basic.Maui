@@ -7,9 +7,7 @@ namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LoginResult
     {
-#nullable enable
         public LoginResult(LineLoginResult result)
-#nullable disable
         {
             if (result.ResponseCode == LineApiResponseCode.Success)
             {
@@ -39,9 +37,7 @@ namespace Entap.Basic.Maui.Auth.Line
             };
         }
 
-#nullable enable
         UserProfile? GetUserProfile(LineProfile? profile)
-#nullable disable
         {
             if (profile is null)
                 return null;
