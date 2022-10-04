@@ -7,9 +7,7 @@ namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LoginResult
     {
-#nullable enable
         public LoginResult(LineSDKLoginResult? result, NSError? error)
-#nullable disable
         {
             if (error is not null)
                 SetError(error);
@@ -57,9 +55,7 @@ namespace Entap.Basic.Maui.Auth.Line
             return Newtonsoft.Json.JsonConvert.DeserializeObject<AccessToken>(accessToken.Json);
         }
 
-#nullable enable
         UserProfile? GetUserProfile(LineSDKLoginResult arg1)
-#nullable disable
         {
             var profile = arg1.GetUserProfile();
             if (profile is null)
