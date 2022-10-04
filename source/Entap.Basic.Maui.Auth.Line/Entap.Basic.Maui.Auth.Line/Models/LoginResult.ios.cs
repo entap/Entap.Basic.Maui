@@ -29,18 +29,26 @@ namespace Entap.Basic.Maui.Auth.Line
             UserProfile = GetUserProfile(result);
         }
 
-        LineAccessTokenResponse GetLineAccessTokenResponse(LineSDKAccessToken lineAccessToken)
+        LineAccessTokenResponse? GetLineAccessTokenResponse(LineSDKAccessToken lineAccessToken)
         {
-            var accessToken = GetAccessToken(lineAccessToken);
-            return new LineAccessTokenResponse
+            try
             {
-                AccessToken = accessToken.AccessTokenAccessToken,
-                TokenType = accessToken.TokenType,
-                ExpiresIn = accessToken.ExpiresIn,
-                Scope = accessToken.Scope,
-                IdToken = accessToken.IdToken,
-                RefreshToken = accessToken.RefreshToken,
-            };
+                var accessToken = GetAccessToken(lineAccessToken);
+                return new LineAccessTokenResponse
+                {
+                    AccessToken = accessToken.AccessTokenAccessToken,
+                    TokenType = accessToken.TokenType,
+                    ExpiresIn = accessToken.ExpiresIn,
+                    Scope = accessToken?.Scope,
+                    IdToken = accessToken?.IdToken,
+                    RefreshToken = accessToken?.RefreshToken,
+                };
+            }
+            catch (Exception ex)
+            {
+                Exception = ex;
+                return null;
+            }
         }
 
         /// <summary>
@@ -52,7 +60,13 @@ namespace Entap.Basic.Maui.Auth.Line
         /// </summary>
         AccessToken GetAccessToken(LineSDKAccessToken accessToken)
         {
-            return Newtonsoft.Json.JsonConvert.DeserializeObject<AccessToken>(accessToken.Json);
+            if (accessToken.Json is null)
+                throw new ArgumentNullException(nameof(LineSDKAccessToken.Json));
+            var result = Newtonsoft.Json.JsonConvert.DeserializeObject<AccessToken>(accessToken.Json);
+            if (result is null)
+                throw new ArgumentNullException("AccessToken Convert Error");
+
+            return result;
         }
 
         UserProfile? GetUserProfile(LineSDKLoginResult arg1)
