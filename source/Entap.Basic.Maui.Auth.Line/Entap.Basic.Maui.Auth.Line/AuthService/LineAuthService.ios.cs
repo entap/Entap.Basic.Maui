@@ -13,9 +13,7 @@ namespace Entap.Basic.Maui.Auth.Line
         /// 初期化
         /// https://developers.line.biz/ja/docs/ios-sdk/swift/integrate-line-login/#call-loginmanagersetup-method
         /// </summary>
-#nullable enable
         public static void Init(string channelId, string? universalLinkUrl = null)
-#nullable disable
         {
             var url = string.IsNullOrEmpty(universalLinkUrl) ? null : new NSUrl(universalLinkUrl);
             LineSDKLoginManager.SharedManager.SetupWithChannelID(channelId, url);
