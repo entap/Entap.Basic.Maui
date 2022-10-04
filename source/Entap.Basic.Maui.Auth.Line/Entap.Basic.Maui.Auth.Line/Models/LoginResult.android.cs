@@ -42,9 +42,10 @@ namespace Entap.Basic.Maui.Auth.Line
             if (profile is null)
                 return null;
 
+            var pictureUrl = profile.PictureUrl?.ToString();
             return new UserProfile(profile.UserId, profile.DisplayName)
             {
-                PictureURL = (profile.PictureUrl is null) ? null : new Uri(profile.PictureUrl.ToString()),
+                PictureURL = (pictureUrl is null) ? null : new Uri(pictureUrl),
                 StatusMessage = profile.StatusMessage
             };
         }
