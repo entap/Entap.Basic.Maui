@@ -5,7 +5,7 @@ using Foundation;
 using LineSDKObjC;
 using UIKit;
 
-namespace Entap.Basic.Auth.Line
+namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LineAuthService : ILineAuthService
     {

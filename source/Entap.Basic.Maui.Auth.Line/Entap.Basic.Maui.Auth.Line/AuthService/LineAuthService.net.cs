@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Threading.Tasks;
 
-namespace Entap.Basic.Auth.Line
+namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LineAuthService : ILineAuthService
     {

@@ -6,7 +6,7 @@ using Android.Content;
 using Com.Linecorp.Linesdk;
 using Com.Linecorp.Linesdk.Auth;
 
-namespace Entap.Basic.Auth.Line
+namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LineAuthService : ILineAuthService
     {
