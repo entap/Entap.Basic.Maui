@@ -29,7 +29,7 @@ namespace Entap.Basic.Maui.Auth.Line
         {
             var lineCredential = loginResult.LineCredential;
             if (lineCredential is null) return null;
-            return new LineAccessTokenResponse
+            return new LineAccessTokenResponse(loginResult.LineIdToken.RawString)
             {
                 AccessToken = lineCredential.AccessToken.TokenString,
                 ExpiresIn = (int)lineCredential.AccessToken.ExpiresInMillis,

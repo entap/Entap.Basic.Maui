@@ -10,16 +10,15 @@ namespace Entap.Basic.Maui.Auth.Line
     /// </summary>
     public class LineAccessTokenResponse : AccessTokenResponse
     {
-        public LineAccessTokenResponse(string idToken, string refreshToken)
+        public LineAccessTokenResponse(string idToken)
         {
             IdToken = idToken;
-            RefreshToken = refreshToken;
         }
 
         [JsonProperty("id_token")]
         public string IdToken { get; set; }
 
         [JsonProperty("refresh_token")]
-        public string RefreshToken { get; set; }
+        public string? RefreshToken { get; set; }
     }
 }
