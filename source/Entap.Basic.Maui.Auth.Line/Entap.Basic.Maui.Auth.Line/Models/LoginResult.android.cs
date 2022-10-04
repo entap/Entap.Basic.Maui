@@ -46,10 +46,8 @@ namespace Entap.Basic.Maui.Auth.Line
             if (profile is null)
                 return null;
 
-            return new UserProfile
+            return new UserProfile(profile.UserId, profile.DisplayName)
             {
-                UserId = profile.UserId,
-                DisplayName = profile.DisplayName,
                 PictureURL = (profile.PictureUrl is null) ? null : new Uri(profile.PictureUrl.ToString()),
                 StatusMessage = profile.StatusMessage
             };

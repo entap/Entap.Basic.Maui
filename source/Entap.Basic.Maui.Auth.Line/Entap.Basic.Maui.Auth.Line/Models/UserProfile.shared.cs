@@ -8,16 +8,18 @@ namespace Entap.Basic.Maui.Auth.Line
 	/// </summary>
     public class UserProfile
     {
-        public UserProfile()
+        public UserProfile(string userId, string displayName)
         {
+            UserId = userId;
+            DisplayName = displayName;
         }
 
         public string UserId { get; internal set; }
 
         public string DisplayName { get; internal set; }
 
-        public Uri PictureURL { get; internal set; }
+        public Uri? PictureURL { get; internal set; }
 
-        public string StatusMessage { get; internal set; }
+        public string? StatusMessage { get; internal set; }
     }
 }
