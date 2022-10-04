@@ -50,7 +50,7 @@ namespace Entap.Basic.Maui.Auth.Line
         {
             var loginPermissions = GetLoginPermissions(scopes);
             var permissions = new NSSet<LineSDKLoginPermission>(loginPermissions);
-            var viewController = Xamarin.Essentials.Platform.GetCurrentUIViewController();
+            var viewController = Platform.GetCurrentUIViewController();
 
             TaskCompletionSource<LoginResult> tcs = new TaskCompletionSource<LoginResult>();
             LineSDKLoginManager.SharedManager.LoginWithPermissions(permissions, viewController, (LineSDKLoginResult arg1, NSError arg2) =>
