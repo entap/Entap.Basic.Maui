@@ -5,7 +5,7 @@ using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
 
-namespace Entap.Basic.Auth.Line
+namespace Entap.Basic.Maui.Auth.Line
 {
     public class LineLoginButton : View
     {
