@@ -33,14 +33,14 @@ namespace Entap.Basic.Maui.Auth.Line
         /// </summary>
         public async Task<LoginResult> PlatformLoginAsync(params LoginScope[] scopes)
         {
-            var context = Xamarin.Essentials.Platform.AppContext;
+            var context = Platform.AppContext;
             var param = new LineAuthenticationParams
                 .Builder()
                 .Scopes(GetScopes(scopes))
                 .Build();
             var loginIntent = LineLoginApi.GetLoginIntent(context, ChannelId, param);
 
-            var activity = Xamarin.Essentials.Platform.CurrentActivity;
+            var activity = Platform.CurrentActivity;
             var activityResult = await Core.Android.StarterActivity.StartAsync(activity, loginIntent, _requestCode);
             var result = LineLoginApi.GetLoginResultFromIntent(activityResult);
             return new LoginResult(result);
