@@ -10,9 +10,11 @@
 
   <ItemGroup>
     <None Remove="Entap.Basic.Auth" />
+    <None Remove="Entap.Basic.Maui.Core" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Entap.Basic.Auth" Version="1.0.4" />
+    <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.1" />
   </ItemGroup>
 
   <!-- .NET -->
