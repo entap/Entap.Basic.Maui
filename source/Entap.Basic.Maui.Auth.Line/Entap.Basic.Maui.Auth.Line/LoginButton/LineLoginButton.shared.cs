@@ -17,7 +17,7 @@ namespace Entap.Basic.Maui.Auth.Line
             nameof(LoginScopes),
             typeof(IList<string>),
             typeof(LineLoginButton),
-            new string[] { Enum.GetName(typeof(LoginScope), LoginScope.Profile) },
+            new string[] { Enum.GetName(typeof(LoginScope), LoginScope.Profile) ?? throw new ArgumentException(nameof(LoginScope.Profile))},
             defaultBindingMode: BindingMode.Default
         );
 
@@ -66,7 +66,7 @@ namespace Entap.Basic.Maui.Auth.Line
         }
         #endregion
 
-        public event EventHandler<LoginResult> Clicked;
+        public event EventHandler<LoginResult>? Clicked;
 
         [EditorBrowsable(EditorBrowsableState.Never)]
         public void SendClicked(LoginResult result)
