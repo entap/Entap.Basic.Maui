@@ -24,7 +24,13 @@ namespace Entap.Basic.Maui.Auth.Line
         /// https://developers.line.biz/ja/docs/ios-sdk/swift/universal-links-support/#modify-app-delegate
         /// </summary>
         public static bool ContinueUserActivity(UIApplication application, NSUserActivity userActivity, UIApplicationRestorationHandler completionHandler)
+#pragma warning disable CS8604
+            // userActivity.WebPageUrlの警告抑制
+            // LineSDKLoginManagerはNullableではないが、LineSDKLoginManagerから実行するLoginManagerはNullableのため
+            // https://github.com/line/line-sdk-ios-swift/blob/c68678840b2dcf13e14054d35386c890f00ca103/LineSDK/LineSDKObjC/Login/LineSDKLoginManager.swift#L87
+            // https://github.com/line/line-sdk-ios-swift/blob/955322119dbd9d3561804f00e3583118004d3054/LineSDK/LineSDK/Login/LoginManager.swift#L279
             => LineSDKLoginManager.SharedManager.Application(application, userActivity.WebPageUrl, new NSDictionary<NSString, NSObject>());
+#pragma warning restore CS8604
 
         /// <summary>
         /// OpenUrl
@@ -37,8 +43,14 @@ namespace Entap.Basic.Maui.Auth.Line
         /// OpenUrlContexts
         /// https://developers.line.biz/ja/docs/ios-sdk/swift/integrate-line-login/#modify-scene-delegates
         /// </summary>
+#pragma warning disable CS8604
+        // userActivity.WebPageUrlの警告抑制
+        // LineSDKLoginManagerはNullableではないが、LineSDKLoginManagerから実行するLoginManagerはNullableのため
+        // https://github.com/line/line-sdk-ios-swift/blob/c68678840b2dcf13e14054d35386c890f00ca103/LineSDK/LineSDKObjC/Login/LineSDKLoginManager.swift#L87
+        // https://github.com/line/line-sdk-ios-swift/blob/955322119dbd9d3561804f00e3583118004d3054/LineSDK/LineSDK/Login/LoginManager.swift#L279
         public static void OpenUrlContexts(UIScene scene, NSSet<UIOpenUrlContext> urlContexts)
             => LineSDKLoginManager.SharedManager.Application(UIApplication.SharedApplication, url: urlContexts?.ToArray()?.FirstOrDefault()?.Url, new NSDictionary<NSString, NSObject>());
+#pragma warning restore CS8604
 
         /// <summary>
         /// ログイン処理
