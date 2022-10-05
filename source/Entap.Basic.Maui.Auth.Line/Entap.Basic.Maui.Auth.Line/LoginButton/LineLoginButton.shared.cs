@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Linq;
 using System.Windows.Input;
-using Xamarin.Forms;
 
 namespace Entap.Basic.Maui.Auth.Line
 {
@@ -22,7 +21,7 @@ namespace Entap.Basic.Maui.Auth.Line
             defaultBindingMode: BindingMode.Default
         );
 
-        [Xamarin.Forms.TypeConverter(typeof(ListStringTypeConverter))]
+        [TypeConverter(typeof(ListStringTypeConverter))]
         public IList<string> LoginScopes
         {
             get { return (IList<string>)GetValue(LoginScopesProperty); }
