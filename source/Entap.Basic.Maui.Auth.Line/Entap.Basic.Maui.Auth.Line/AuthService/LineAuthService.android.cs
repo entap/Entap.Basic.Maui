@@ -18,9 +18,7 @@ namespace Entap.Basic.Maui.Auth.Line
         /// <summary>
         /// 初期化
         /// </summary>
-#nullable enable
         public static void Init(string channelId)
-#nullable disable
         {
             _channelId = channelId;
         }
