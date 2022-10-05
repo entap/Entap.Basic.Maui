@@ -5,13 +5,14 @@ using Android.App;
 using Android.Content;
 using Com.Linecorp.Linesdk;
 using Com.Linecorp.Linesdk.Auth;
+using Entap.Basic.Maui.Core;
 
 namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LineAuthService : ILineAuthService
     {
-        public static string ChannelId => _channelId;
-        static string _channelId;
+        public static string? ChannelId => _channelId;
+        static string? _channelId;
 
         static readonly int _requestCode = 1;
 
@@ -33,14 +34,29 @@ namespace Entap.Basic.Maui.Auth.Line
         /// </summary>
         public async Task<LoginResult> PlatformLoginAsync(params LoginScope[] scopes)
         {
+            if (ChannelId is null)
+            {
+                throw new InvalidOperationException($"Please call {nameof(LineAuthService.Init)} method.");
+            }
+
             var context = Platform.AppContext;
             var param = new LineAuthenticationParams
                 .Builder()
-                .Scopes(GetScopes(scopes))
+                .Scopes(GetScopes(scopes))?
                 .Build();
+            if (param is null)
+            {
+                // LineAuthenticationParams.Builder.ScopesはNull非許容
+                // https://developers.line.biz/en/reference/android-sdk/reference/com/linecorp/linesdk/auth/LineAuthenticationParams.Builder.html
+                throw new NullReferenceException(nameof(LineAuthenticationParams.Builder.Scopes));
+            }
             var loginIntent = LineLoginApi.GetLoginIntent(context, ChannelId, param);
 
             var activity = Platform.CurrentActivity;
+            if (activity is null)
+            {
+                throw new InvalidOperationException($"Platform.CurrentActivity is null");
+            }
             var activityResult = await Core.Android.StarterActivity.StartAsync(activity, loginIntent, _requestCode);
             var result = LineLoginApi.GetLoginResultFromIntent(activityResult);
             return new LoginResult(result);
@@ -55,6 +71,9 @@ namespace Entap.Basic.Maui.Auth.Line
 
         static Scope GetScope(LoginScope loginScope)
         {
+            // com.linecorp.linesdk.ScopeはNull非許容のため警告抑制
+            // https://developers.line.biz/en/reference/android-sdk/reference/com/linecorp/linesdk/Scope.html
+#pragma warning disable CS8603
             return loginScope switch
             {
                 LoginScope.OpenID => Scope.OpenidConnect,
@@ -63,6 +82,6 @@ namespace Entap.Basic.Maui.Auth.Line
                 _ => throw new ArgumentOutOfRangeException(nameof(LoginScope)),
             };
         }
-
+#pragma warning restore CS8603
     }
 }
