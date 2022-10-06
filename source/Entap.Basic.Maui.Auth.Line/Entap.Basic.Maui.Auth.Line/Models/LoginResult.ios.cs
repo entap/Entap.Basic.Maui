@@ -77,7 +77,9 @@ namespace Entap.Basic.Maui.Auth.Line
 
             return new UserProfile(profile.UserID, profile.DisplayName)
             {
-                PictureURL = profile.PictureURL,
+                PictureURL = profile.PictureURL is null ?
+                    null :
+                    new Uri(profile.PictureURL.ToString()),
                 StatusMessage = profile.StatusMessage
             };
         }
