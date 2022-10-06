@@ -7,8 +7,14 @@ namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LoginResult
     {
-        public LoginResult(LineLoginResult result)
+        public LoginResult(LineLoginResult? result)
         {
+            if (result is null)
+            {
+                Exception = new NullReferenceException();
+                return;
+            }
+
             if (result.ResponseCode == LineApiResponseCode.Success)
             {
                 LineAccessToken = GetLineAccessToken(result);
