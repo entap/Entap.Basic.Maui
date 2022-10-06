@@ -24,9 +24,6 @@ namespace Entap.Basic.Maui.Auth.Line
             _channelId = channelId;
         }
 
-        public static bool OnActivityResult(int requestCode, Result resultCode, Intent data)
-            => LineLoginButtonRenderer.OnActivityResult(requestCode, resultCode, data);
-
         /// <summary>
         /// ログイン処理
         /// https://developers.line.biz/ja/docs/android-sdk/integrate-line-login/#starting-login-activity
