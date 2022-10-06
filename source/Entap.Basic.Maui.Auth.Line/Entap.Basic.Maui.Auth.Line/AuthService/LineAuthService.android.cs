@@ -11,7 +11,7 @@ namespace Entap.Basic.Maui.Auth.Line
 {
     public partial class LineAuthService : ILineAuthService
     {
-        public static string? ChannelId => _channelId;
+        public static string ChannelId => _channelId ?? throw new InvalidOperationException($"Please call {nameof(LineAuthService.Init)} method.");
         static string? _channelId;
 
         static readonly int _requestCode = 1;
@@ -34,11 +34,6 @@ namespace Entap.Basic.Maui.Auth.Line
         /// </summary>
         public async Task<LoginResult> PlatformLoginAsync(params LoginScope[] scopes)
         {
-            if (ChannelId is null)
-            {
-                throw new InvalidOperationException($"Please call {nameof(LineAuthService.Init)} method.");
-            }
-
             var context = Platform.AppContext;
             var param = new LineAuthenticationParams
                 .Builder()
