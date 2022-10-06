@@ -28,5 +28,27 @@
 	</array>
 	<key>XSAppIconAssets</key>
 	<string>Assets.xcassets/appicon.appiconset</string>
+	<key>CFBundleURLTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>line3rdp.com.companyname.sample</string>
+			</array>
+		</dict>
+	</array>
+	<key>LSApplicationQueriesSchemes</key>
+	<array>
+		<string>lineauth2</string>
+	</array>
+	<key>CFBundleDevelopmentRegion</key>
+	<string>ja</string>
+	<key>LineSDKConfig</key>
+	<dict>
+	    <key>ChannelID</key>
+	    <string>1655277852</string>
+	</dict>
 </dict>
 </plist>
