@@ -6,7 +6,7 @@ using System.Windows.Input;
 
 namespace Entap.Basic.Maui.Auth.Line
 {
-    public class LineLoginButton : View
+    public class LineLoginButton : View, IView
     {
         public LineLoginButton()
         {
