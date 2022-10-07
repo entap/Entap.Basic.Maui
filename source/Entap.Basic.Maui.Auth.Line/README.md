@@ -43,7 +43,7 @@ LINE Login settingsを登録してください。
 　※ユニバーサルリンクの[アプリとサーバーを関連づけ](https://developers.line.biz/ja/docs/ios-sdk/swift/universal-links-support/#ul-s1)については 、[Firebase Dynamic Links](https://firebase.google.com/docs/dynamic-links?hl=ja)の使用も可能です  
 (シミュレータはサポート対象外)。    
 ・[Info.plistファイルを設定する](https://developers.line.biz/ja/docs/ios-sdk/swift/setting-up-project/#config-infoplist-file)  
-・「Entap.Basic.Auth.Maui.Line」を追加してください。
+・「Entap.Basic.Auth.Maui.Line」を追加してください。  
 ・[アプリデリゲートを変更する](https://developers.line.biz/ja/docs/ios-sdk/swift/integrate-line-login/#modify-app-delegate)
 ```csharp
 public override bool OpenUrl(UIApplication app, NSUrl url, NSDictionary options)
