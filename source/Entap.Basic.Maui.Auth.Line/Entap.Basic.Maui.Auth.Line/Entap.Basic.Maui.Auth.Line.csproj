@@ -1,0 +1,57 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net6.0;net6.0-android;net6.0-ios;</TargetFrameworks>
+    <UseMaui>true</UseMaui>
+    <SingleProject>true</SingleProject>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+
+    <PackageId>Entap.Basic.Maui.Auth.Line</PackageId>
+    <PackageVersion>1.0.0</PackageVersion>
+    <Authors>Entap</Authors>
+    <Description>LINEログインを行うライブラリ</Description>
+    <PackageProjectUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Auth.Line</PackageProjectUrl>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <PackageReleaseNotes>[add]Entap.Basic.Auth.Lineからの移行</PackageReleaseNotes>
+    <RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Auth.Line</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="../README.md" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Entap.Basic.Auth" />
+    <None Remove="Entap.Basic.Maui.Core" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Entap.Basic.Auth" Version="1.0.4" />
+    <PackageReference Include="Entap.Basic.Maui.Core" Version="1.1.1" />
+  </ItemGroup>
+
+  <!-- .NET -->
+  <ItemGroup Condition="'$(TargetFramework)' != 'net6.0'">
+    <Compile Remove="**\**\*.net.cs" />
+  </ItemGroup>
+
+  <!-- Android -->
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-android')) != true">
+    <Compile Remove="**\**\*.android.cs" />
+    <None Include="**\**\*.android.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+  
+  <!-- iOS -->
+  <ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-ios')) != true">
+    <Compile Remove="**\**\*.iOS.cs" />
+    <None Include="**\**\*.iOS.cs" Exclude="$(DefaultItemExcludes);$(DefaultExcludesInProjectFolder)" />
+  </ItemGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-android'">
+    <PackageReference Include="LineSDK.NET.Android" Version="1.0.0" />
+  </ItemGroup>
+  <ItemGroup Condition="'$(TargetFramework)' == 'net6.0-ios'">
+    <PackageReference Include="LineSDK.NET.iOS" Version="1.0.0" />
+  </ItemGroup>
+
+</Project>

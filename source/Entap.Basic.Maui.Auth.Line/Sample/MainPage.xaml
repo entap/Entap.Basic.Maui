@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Sample"
+             xmlns:line="clr-namespace:Entap.Basic.Maui.Auth.Line;assembly=Entap.Basic.Maui.Auth.Line"
+             x:Class="Sample.MainPage">
+    <ScrollView>
+        <VerticalStackLayout
+            Spacing="25"
+            Padding="30,0"
+            VerticalOptions="Center">
+
+            <line:LineLoginButton
+                LoginScopes="OpenID, Profile, Email"
+                Command="{Binding LineLoginCommand}"
+                CommandParameter="{Binding}"
+            />
+
+            <!--https://developers.line.biz/ja/docs/line-login/login-button/#design-guidelines-->
+            <Button
+                BackgroundColor="#06C755"
+                TextColor="#FFFFFF"
+                Text="LINEでログイン"
+                Command="{Binding CustomLineLoginCommand}"
+            />
+
+        </VerticalStackLayout>
+    </ScrollView>
+
+</ContentPage>
+

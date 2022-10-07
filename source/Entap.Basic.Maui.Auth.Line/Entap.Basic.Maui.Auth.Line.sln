@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 25.0.1704.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entap.Basic.Maui.Auth.Line", "Entap.Basic.Maui.Auth.Line\Entap.Basic.Maui.Auth.Line.csproj", "{53529569-5000-44E9-9822-9815F7D6CF29}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Sample", "Sample", "{85C54B30-44D2-4ACC-8F2A-87E840A4CB32}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{66FDD195-C3A4-4B87-A5D4-811B92FB69CD}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{53529569-5000-44E9-9822-9815F7D6CF29}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{53529569-5000-44E9-9822-9815F7D6CF29}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{53529569-5000-44E9-9822-9815F7D6CF29}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{53529569-5000-44E9-9822-9815F7D6CF29}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66FDD195-C3A4-4B87-A5D4-811B92FB69CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66FDD195-C3A4-4B87-A5D4-811B92FB69CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66FDD195-C3A4-4B87-A5D4-811B92FB69CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66FDD195-C3A4-4B87-A5D4-811B92FB69CD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3002A8B4-8728-48A8-87DF-226D2A91EE59}
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{66FDD195-C3A4-4B87-A5D4-811B92FB69CD} = {85C54B30-44D2-4ACC-8F2A-87E840A4CB32}
+	EndGlobalSection
+EndGlobal
