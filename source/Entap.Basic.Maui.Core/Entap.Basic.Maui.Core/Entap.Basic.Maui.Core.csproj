@@ -67,6 +67,7 @@
 	  <None Remove="Shared\Behaviors\KeyboardOverlapping\" />
 	  <None Remove="Shared\Behaviors\PaddingBehavior\" />
 	  <None Remove="Shared\Handlers\" />
+	  <None Remove="Shared\Behaviors\NullableDatePickerBehavior\" />
 	</ItemGroup>
 	<ItemGroup>
 	  <Folder Include="Platforms\Android\" />
@@ -93,6 +94,7 @@
 	  <Folder Include="Shared\Behaviors\KeyboardOverlapping\" />
 	  <Folder Include="Shared\Behaviors\PaddingBehavior\" />
 	  <Folder Include="Shared\Handlers\" />
+	  <Folder Include="Shared\Behaviors\NullableDatePickerBehavior\" />
 	</ItemGroup>
     <ItemGroup>
         <None Include="../README.md" Pack="true" PackagePath="\" />
