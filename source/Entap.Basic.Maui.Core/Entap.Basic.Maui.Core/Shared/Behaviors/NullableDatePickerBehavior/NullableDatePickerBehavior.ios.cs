@@ -1,5 +1,6 @@
 ﻿using System;
 using Microsoft.Maui.Platform;
+using PlatformSpefic = Microsoft.Maui.Controls.PlatformConfiguration.iOSSpecific;
 using UIKit;
 
 namespace Entap.Basic.Maui.Core
@@ -26,12 +27,23 @@ namespace Entap.Basic.Maui.Core
             }
             bindable.DateSelected += OnDateSelected;
 
+            var updateMode = PlatformSpefic.DatePicker.GetUpdateMode(bindable);
+            if (updateMode == PlatformSpefic.UpdateMode.Immediately)
+                _mauiDatePicker.Started += OnFocusChanged;
+            else
+                _mauiDatePicker.Ended += OnFocusChanged;
+
             ClearText();
         }
 
         protected override void OnDetachedFrom(DatePicker bindable, UIView platformView)
         {
             bindable.DateSelected -= OnDateSelected;
+            if (_mauiDatePicker is not null)
+            {
+                _mauiDatePicker.Started -= OnFocusChanged;
+                _mauiDatePicker.Ended -= OnFocusChanged;
+            }
             base.OnDetachedFrom(bindable, platformView);
         }
 
@@ -47,6 +59,18 @@ namespace Entap.Basic.Maui.Core
         }
 
         private void OnDateSelected(object? sender, DateChangedEventArgs e)
+        {
+            SetNullableDate();
+        }
+
+        private void OnFocusChanged(object? sender, EventArgs e)
+        {
+            if (_datePicker is null) return;
+            _mauiDatePicker?.UpdateDate(_datePicker);
+            SetNullableDate();
+        }
+
+        private void SetNullableDate()
         {
             NullableDate = _datePicker?.Date;
         }

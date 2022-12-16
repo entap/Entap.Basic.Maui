@@ -25,7 +25,10 @@ namespace Entap.Basic.Maui.Core
                 BindingContext = bindable.BindingContext;
             }
             bindable.DateSelected += OnDateSelected;
-
+            _mauiDatePicker.ShowPicker += new Action(() =>
+            {
+                OnFocus();
+            });
             ClearText();
         }
 
@@ -47,6 +50,18 @@ namespace Entap.Basic.Maui.Core
         }
 
         private void OnDateSelected(object? sender, DateChangedEventArgs e)
+        {
+            SetNullableDate();
+        }
+
+        private void OnFocus()
+        {
+            if (_datePicker is null) return;
+            _mauiDatePicker?.UpdateDate(_datePicker);
+            SetNullableDate();
+        }
+
+        private void SetNullableDate()
         {
             NullableDate = _datePicker?.Date;
         }
