@@ -18,12 +18,12 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 		<PackageId>Entap.Basic.Maui.Core</PackageId>
-		<PackageVersion>1.2.0</PackageVersion>
+		<PackageVersion>1.3.0</PackageVersion>
 		<Authors>Entap</Authors>
 		<Description>Entap.Basic.Maui.Core</Description>
 		<PackageProjectUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Core</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageReleaseNotes>[add]NullableDatePickerBehavior : DatePickerのNullを許容（iOS, Android）</PackageReleaseNotes>
+		<PackageReleaseNotes>[add]DialogService : アラートの表示機能追加（iOS, Android, Mac）</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Core</RepositoryUrl>
 	</PropertyGroup>
 
