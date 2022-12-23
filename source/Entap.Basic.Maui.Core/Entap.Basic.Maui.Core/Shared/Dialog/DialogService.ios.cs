@@ -6,7 +6,7 @@ using UIKit;
 
 namespace Entap.Basic.Maui.Core
 {
-    public partial class DialogService
+    public partial class DialogService : IPlatformDialogService
     {
         const float AlertPadding = 10.0f;
 
@@ -96,9 +96,6 @@ namespace Entap.Basic.Maui.Core
             }
 
             window.RootViewController.PresentViewController(alert, true, null);
-
-            //var s = Microsoft.Maui.ApplicationModel.Platform.GetCurrentUIViewController();
-            //s.PresentViewController(alert, true, null);
         }
 
         private static UIWindow CreateWindow() => new UIWindow { BackgroundColor = Colors.Transparent.ToPlatform() };
