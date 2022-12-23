@@ -18,13 +18,20 @@
 		<SupportedOSPlatformVersion Condition="$([MSBuild]::GetTargetPlatformIdentifier('$(TargetFramework)')) == 'tizen'">6.5</SupportedOSPlatformVersion>
 
 		<PackageId>Entap.Basic.Maui.Core</PackageId>
-		<PackageVersion>1.3.0</PackageVersion>
+		<PackageVersion>1.3.1</PackageVersion>
 		<Authors>Entap</Authors>
 		<Description>Entap.Basic.Maui.Core</Description>
 		<PackageProjectUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Core</PackageProjectUrl>
 		<PackageReadmeFile>README.md</PackageReadmeFile>
-		<PackageReleaseNotes>[add]DialogService : アラートの表示機能追加（iOS, Android, Mac）</PackageReleaseNotes>
+		<PackageReleaseNotes>[update]DialogService : DisplayAlertAsyncの引数title, messageをNull許容型に変更</PackageReleaseNotes>
 		<RepositoryUrl>https://github.com/entap/Entap.Basic.Maui/tree/main/source/Entap.Basic.Maui.Core</RepositoryUrl>
+	</PropertyGroup>
+
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net6.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
+	</PropertyGroup>
+	<PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net6.0-ios|AnyCPU'">
+	  <CreatePackage>false</CreatePackage>
 	</PropertyGroup>
 
 	<ItemGroup Condition="$(TargetFramework.StartsWith('net6.0-android')) != true">
