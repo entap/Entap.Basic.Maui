@@ -10,16 +10,16 @@ namespace Entap.Basic.Maui.Core
 		{
 		}
 
-        public Task DisplayAlertAsync(string title, string message, string cancel)
+        public Task DisplayAlertAsync(string? title, string? message, string cancel)
             => PlatformDisplayAlertAsync(title, message, null, new DialogItem(cancel, DialogItemStyle.Cancel));
 
-        public Task DisplayAlertAsync(string title, string message, string accept, string cancel)
+        public Task DisplayAlertAsync(string? title, string? message, string accept, string cancel)
             => PlatformDisplayAlertAsync(title, message, new DialogItem(accept), new DialogItem(cancel, DialogItemStyle.Cancel));
 
-        public Task DisplayAlertAsync(string title, string message, DialogItem cancelItem)
+        public Task DisplayAlertAsync(string? title, string? message, DialogItem cancelItem)
             => PlatformDisplayAlertAsync(title, message, null, cancelItem);
 
-        public Task<bool> DisplayAlertAsync(string title, string message, DialogItem? acceptItem, DialogItem cancelItem)
+        public Task<bool> DisplayAlertAsync(string? title, string? message, DialogItem? acceptItem, DialogItem cancelItem)
             => PlatformDisplayAlertAsync(title, message, acceptItem, cancelItem);
 
     }

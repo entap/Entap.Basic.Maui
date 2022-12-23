@@ -2,6 +2,6 @@
 {
     public interface IPlatformDialogService
     {
-        Task<bool> PlatformDisplayAlertAsync(string title, string message, DialogItem? acceptItem, DialogItem cancelItem);
+        Task<bool> PlatformDisplayAlertAsync(string? title, string? message, DialogItem? acceptItem, DialogItem cancelItem);
     }
 }

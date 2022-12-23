@@ -13,7 +13,7 @@ namespace Entap.Basic.Maui.Core
 
         Activity? CurrentActivity => Microsoft.Maui.ApplicationModel.Platform.CurrentActivity;
 
-        public Task<bool> PlatformDisplayAlertAsync(string title, string message, DialogItem? acceptItem, DialogItem cancelItem)
+        public Task<bool> PlatformDisplayAlertAsync(string? title, string? message, DialogItem? acceptItem, DialogItem cancelItem)
         {
             if (CurrentActivity is null) return Task.FromException<bool>(new NullReferenceException(nameof(CurrentActivity)));
 
