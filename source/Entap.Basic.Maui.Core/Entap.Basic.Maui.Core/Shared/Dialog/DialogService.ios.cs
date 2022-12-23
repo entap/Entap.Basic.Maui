@@ -6,18 +6,11 @@ using UIKit;
 
 namespace Entap.Basic.Maui.Core
 {
-	public class DialogService
-	{
+    public partial class DialogService
+    {
         const float AlertPadding = 10.0f;
 
-        public DialogService()
-		{
-		}
-
-        public Task DisplayAlertAsync(string title, string message, DialogItem cancelItem)
-            => DisplayAlertAsync(title, message, null, cancelItem);
-
-        public Task<bool> DisplayAlertAsync(string title, string message, DialogItem? acceptItem, DialogItem cancelItem)
+        public Task<bool> PlatformDisplayAlertAsync(string title, string message, DialogItem? acceptItem, DialogItem cancelItem)
         {
             // https://github.com/dotnet/maui/blob/73a06de15c0b79aa9441e44b3f8bf1ec80920f1a/src/Controls/src/Core/Platform/AlertManager/AlertManager.iOS.cs#L98
             var taskCompletionSource = new TaskCompletionSource<bool>();
