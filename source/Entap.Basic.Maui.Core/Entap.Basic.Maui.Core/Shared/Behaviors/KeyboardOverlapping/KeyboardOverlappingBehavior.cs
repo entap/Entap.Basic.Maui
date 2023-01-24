@@ -8,6 +8,24 @@ namespace Entap.Basic.Maui.Core
         {
         }
 
+        #region IsShownKeyboard BindableProperty
+        /// <summary>
+        /// キーボードが表示中か
+        /// </summary>
+        public static readonly BindableProperty IsShownKeyboardProperty = BindableProperty.Create(
+            nameof(IsShownKeyboard),
+            typeof(bool),
+            typeof(KeyboardOverlappingBehavior),
+            false,
+            defaultBindingMode: BindingMode.TwoWay);
+
+        public bool IsShownKeyboard
+        {
+            get { return (bool)GetValue(IsShownKeyboardProperty); }
+            set { SetValue(IsShownKeyboardProperty, value); }
+        }
+        #endregion
+
         #region BottomMargin
         /// <summary>
         /// キーボード表示時のViewとKeyboardとのMargin

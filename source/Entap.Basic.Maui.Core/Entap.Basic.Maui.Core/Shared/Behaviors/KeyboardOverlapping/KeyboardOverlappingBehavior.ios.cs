@@ -39,6 +39,8 @@ namespace Entap.Basic.Maui.Core
         void OnKeyboardShown(object? sender, UIKeyboardEventArgs e)
         {
             if (AssociatedObject is null) return;
+
+            IsShownKeyboard = true;
             if (_margin is null)
             {
                 // ViewのMaringを退避
@@ -59,6 +61,8 @@ namespace Entap.Basic.Maui.Core
         void OnKeyboardHidden(object? sender, UIKeyboardEventArgs e)
         {
             if (AssociatedObject is null) return;
+
+            IsShownKeyboard = false;
             if (_margin is null) return;
 
             // Viewが保有していたMaringに戻す
